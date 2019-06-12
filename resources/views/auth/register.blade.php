@@ -93,7 +93,7 @@
         
                                 <div class="form-group mb-0">
                                     <div class=" text-center">
-                                        <button type="submit" class="btn btn-primary">
+                                        <button type="submit" class="btn bt-primary">
                                             {{ __('Registrarse') }}
                                         </button>
                                         <a class="btn btn-link has-user" href="{{ route('login') }}">

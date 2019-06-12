@@ -56,7 +56,7 @@
         
                                 <div class="form-group mb-0">
                                     <div class="text-center">
-                                        <button type="submit" class="btn btn-primary">
+                                        <button type="submit" class="bt-primary">
                                             {{ __('Ingresar') }}
                                         </button>
                                         @if (Route::has('password.request'))
