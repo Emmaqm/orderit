@@ -5,12 +5,18 @@ $body-bg: #f8fafc;
 $fa-font-path:        "../webfonts";
 
 // Typography
-$font-family-sans-serif: "Nunito", sans-serif;
+$font-family-sans-serif: "Lato", sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
 // Colors
-$text-light-grey: #4D4F5C;
+$darkest-grey: #353a40;
+$dark-grey:#747980;
+$grey:#d4dde9;
+$light-grey:#edf1f5;
+$lightest-grey:#f5f7fa;
+
+
 $primary-color-1: #EF684A;
 $primary-color-2: #EB8169;
 $primary-color-3: #F3A998;

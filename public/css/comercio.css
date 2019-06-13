@@ -1,0 +1,8 @@
+.products.d-flex {
+  flex-wrap: wrap;
+}
+
+.products .card {
+  width: 260px;
+}
+

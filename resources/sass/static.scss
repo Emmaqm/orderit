@@ -1,15 +1,5 @@
 
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-
-// Variables
 @import 'variables';
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
-
-@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
-@import '~@fortawesome/fontawesome-free/scss/solid.scss';
-@import '~@fortawesome/fontawesome-free/scss/brands.scss';
 
 
 /*-----------------General classes--------------------*/
@@ -17,8 +7,13 @@
   box-sizing: border-box;
 }
 
+html{
+  font-size: $font-size-base;
+}
+
 body{
   background-color: #fafafa;
+  font-family: $font-family-sans-serif;
 
   .bt-primary{
     color: white;
@@ -45,7 +40,7 @@ body{
     border: 2px solid white;  
 
     &:hover{
-      border-color: $primary-color-2;
+      border-color: white;
       background-color: white;
       color: $primary-color-1; 
       transition: 0.2s; 
@@ -173,6 +168,11 @@ body{
                 &:hover{
                   color: $primary-color-1;
                 }
+
+                &:active{
+                  color: $primary-color-1;
+                  background-color: #f8f9fa;
+                }
               }
             } 
 
@@ -296,7 +296,7 @@ body{
           margin: 10px 0;
           font-size: 1.1em;
           display: block;
-          color: $text-light-grey;
+          color: $darkest-grey;
           text-decoration: none;
 
             &:hover{
@@ -444,17 +444,49 @@ body{
   .navbar-top{
     height: unset;
 
+    &.sticky-top{
+      position: initial !important;
+    }
+
     .container-fluid {
       padding: 0px 15px;
     }
   }
 
   .ml-auto{
-    display: none;
+
+    #navbarDropdown{
+      display: none;
+    }
+
+    .dropdown-menu{
+      min-width: unset !important;
+      display: flex;
+      margin-top: 20px; 
+      
+      .dropdown-container-right{
+        order:1;
+        padding: 10px 8px; 
+
+        .bt-secondary{
+          margin-top: 0 !important;
+        }
+
+        p{
+          margin: 0.6rem 0 !important;
+        }
+      }
+
+      .dropdown-container-left{
+        display: none;
+        order:2;
+      }
+    }
   }
 
   .mr-auto{
     display: block;
+    padding: 0;
 
     .sidebar{
       width: 100%;
@@ -462,6 +494,29 @@ body{
       max-width: unset;
       border: unset;
       height: unset;
+
+      ul.components{
+        padding-bottom: 0;
+        padding-top: 10px;
+      }
+
+      ul li a{
+        padding: 10px;
+
+        &:hover{
+          background-color: unset;
+        }
+      }
+
+      ul li.active > a{
+        border: none;
+        padding: 10px;
+      }
+
+      ul li > a[aria-expanded=true]{
+        border: none;
+        padding: 10px;
+      }
 
       .dropdown-user{
         margin-top: 10px;
