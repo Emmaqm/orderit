@@ -47,6 +47,13 @@ body{
     }
   }
 
+  .--white-container{
+    background-color:white;
+    padding: 20px;
+    border: 1px solid rgba(0,0,0, 0.1);
+    border-radius: 4px;
+  }
+
   .--back-color-secondary{
     background-color: $primary-color-2;
   }
@@ -65,6 +72,22 @@ body{
 
   .--padding-20{
     padding: 20px;
+  }
+
+  .--link{
+    color: $primary-color-1;
+  }
+
+  .text--darkest-grey{
+    color: $darkest-grey;
+  }
+
+  .text--dark-grey{
+    color: $dark-grey;
+  }
+
+  .text--grey{
+    color: $grey;
   }
 
   .btn-link{

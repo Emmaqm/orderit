@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,6 +12,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        
+        /*DB::table('products')->insert([
+            'nombre' => 'Galleta',
+            'marca'=> 'Bridge',
+            'descripcion'=> 'Oblea de vainilla rellena de chocolate',
+            'estado'=> 'activo',
+            'capacidad'=> '60grs',
+            'precio'=> 70,
+            'imagen_url'=> 'galleta-bridge',
+        ]);*/
+
     }
 }

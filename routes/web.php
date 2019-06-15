@@ -11,14 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    if(Auth::check()){
-        return view('home');
-    }else{
-        return view('auth/login');
-    }
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->middleware('auth');
+
+Route::get('/home', 'HomeController@index')->name('home.index');
+
+Route::get('/home/{product}', 'HomeController@show')->name('home.show');

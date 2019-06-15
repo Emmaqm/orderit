@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Lato&display=swap);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -16466,6 +16466,13 @@ body .bt-secondary:hover {
   transition: 0.2s;
 }
 
+body .\--white-container {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
 body .\--back-color-secondary {
   background-color: #EB8169;
 }
@@ -16484,6 +16491,22 @@ body .\--padding-zero {
 
 body .\--padding-20 {
   padding: 20px;
+}
+
+body .\--link {
+  color: #EF684A;
+}
+
+body .text--darkest-grey {
+  color: #353a40;
+}
+
+body .text--dark-grey {
+  color: #747980;
+}
+
+body .text--grey {
+  color: #acb2bb;
 }
 
 body .btn-link {
@@ -16956,6 +16979,81 @@ body .\--border-top {
 }
 
 .products .card {
-  width: 260px;
+  width: 240px;
+}
+
+.products .card a {
+  text-align: center;
+}
+
+.products .card img {
+  padding: 5px;
+  max-height: 150px;
+  max-width: 150px;
+}
+
+.product .product-left {
+  margin: 0 auto;
+}
+
+.product .product-right {
+  margin: 0 auto;
+  margin-top: 5%;
+}
+
+.product .product-desc {
+  font-size: 1.1em;
+}
+
+.product .product-price {
+  font-size: 2.2em;
+}
+
+.product .cant-label {
+  margin-left: 15px;
+}
+
+.product .product-btn {
+  margin-top: 2%;
+}
+
+.product .product-form {
+  margin-top: 6%;
+}
+
+.product .product-form .product-btn {
+  margin-top: 2%;
+  padding: 6px 40px;
+  font-size: 1.1em;
+}
+
+.product #cantidad-producto {
+  margin-left: 15px;
+}
+
+.product .also-like {
+  margin-top: 5%;
+}
+
+.product .also-like .d-flex {
+  flex-wrap: wrap;
+}
+
+.product .also-like h3 {
+  margin: 1% 0;
+}
+
+.product .also-like .card {
+  width: 140px;
+}
+
+.product .also-like .card .card-body {
+  padding: 0.6rem;
+}
+
+@media (min-width: 576px) {
+  .product .product-right {
+    margin-top: 0;
+  }
 }
 

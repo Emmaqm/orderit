@@ -44,6 +44,13 @@ body .bt-secondary:hover {
   transition: 0.2s;
 }
 
+body .\--white-container {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
 body .\--back-color-secondary {
   background-color: #EB8169;
 }
@@ -62,6 +69,22 @@ body .\--padding-zero {
 
 body .\--padding-20 {
   padding: 20px;
+}
+
+body .\--link {
+  color: #EF684A;
+}
+
+body .text--darkest-grey {
+  color: #353a40;
+}
+
+body .text--dark-grey {
+  color: #747980;
+}
+
+body .text--grey {
+  color: #acb2bb;
 }
 
 body .btn-link {

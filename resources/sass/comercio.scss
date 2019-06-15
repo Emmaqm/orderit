@@ -4,7 +4,88 @@
     }
 
     .card{
-        width: 260px;
+        width: 240px;
+
+        a{
+            text-align: center;
+        }
+
+        img{
+            padding: 5px;
+            max-height: 150px;
+            max-width: 150px;
+        }
     }
     
+}
+
+.product{
+
+    .product-left{
+        margin: 0 auto;
+    }
+
+    .product-right{
+        margin: 0 auto;
+        margin-top: 5%;
+    }
+    .product-desc{
+        font-size: 1.1em;
+    }   
+
+    .product-price{
+        font-size: 2.2em;
+    }
+
+    .cant-label{
+        margin-left: 15px;
+    }
+
+    .product-btn{
+        margin-top: 2%;
+    }
+
+    .product-form{
+        margin-top: 6%;
+
+        .product-btn{
+            margin-top: 2%;
+            padding: 6px 40px;
+            font-size: 1.1em;   
+        }
+    }
+
+    #cantidad-producto{
+        margin-left: 15px;
+    }
+
+
+    .also-like{
+        margin-top: 5%;
+
+        .d-flex{
+            flex-wrap: wrap;   
+        }
+        
+        h3{
+            margin: 1% 0;
+        }
+
+        .card{
+            width: 140px;
+
+            .card-body{
+                padding: 0.6rem;
+            }
+        }
+    }
+
+
+
+    @media (min-width: 576px) {
+        .product-right{
+            margin-top: 0;
+        }
+    }
+
 }
