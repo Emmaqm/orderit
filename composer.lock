@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1a4b848676d31edb74d57a8851cd541a",
+    "content-hash": "c87ae7ec8ff7ff3f38c4699e23e5e6fa",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -548,6 +548,66 @@
                 "url"
             ],
             "time": "2018-12-04T20:46:45+00:00"
+        },
+        {
+            "name": "hardevine/shoppingcart",
+            "version": "2.6.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hardevine/LaravelShoppingcart.git",
+                "reference": "599fb6d7b29d55994789c2642aed2eb49c318107"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hardevine/LaravelShoppingcart/zipball/599fb6d7b29d55994789c2642aed2eb49c318107",
+                "reference": "599fb6d7b29d55994789c2642aed2eb49c318107",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/events": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*",
+                "illuminate/session": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*",
+                "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9.0",
+                "orchestra/testbench": "~3.1",
+                "phpunit/phpunit": "~5.0|~6.0|~7.0"
+            },
+            "suggest": {
+                "gloudemans/notify": "Simple flash notifications for Laravel"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider"
+                    ],
+                    "aliases": {
+                        "Cart": "Gloudemans\\Shoppingcart\\Facades\\Cart"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Gloudemans\\Shoppingcart\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rob Gloudemans",
+                    "email": "info@robgloudemans.nl"
+                }
+            ],
+            "description": "Laravel Shoppingcart",
+            "keywords": [
+                "laravel",
+                "shoppingcart"
+            ],
+            "time": "2019-04-20T17:52:25+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -2899,6 +2959,68 @@
                 "environment"
             ],
             "time": "2019-03-06T09:39:45+00:00"
+        },
+        {
+            "name": "watson/active",
+            "version": "3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dwightwatson/active.git",
+                "reference": "4faa30a31d2bb870c852ea38330f3fa1c1350f34"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dwightwatson/active/zipball/4faa30a31d2bb870c852ea38330f3fa1c1350f34",
+                "reference": "4faa30a31d2bb870c852ea38330f3fa1c1350f34",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "~5.5",
+                "illuminate/http": "~5.5",
+                "illuminate/routing": "~5.5",
+                "illuminate/support": "~5.5",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "mockery/mockery": "~1.0",
+                "phpunit/phpunit": "~8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Watson\\Active\\ActiveServiceProvider"
+                    ],
+                    "aliases": {
+                        "Active": "Watson\\Watson\\Facades\\Active"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Watson\\Active\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dwight Watson",
+                    "email": "dwight@studiousapp.com"
+                }
+            ],
+            "description": "Laravel helper for recognising the current route, controller and action",
+            "keywords": [
+                "active",
+                "laravel",
+                "routing"
+            ],
+            "time": "2019-03-25T04:56:13+00:00"
         }
     ],
     "packages-dev": [

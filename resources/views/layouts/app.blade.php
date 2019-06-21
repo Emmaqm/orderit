@@ -12,9 +12,6 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-
     <!-- Styles -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 </head>
@@ -24,10 +21,24 @@
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     {{ config('app.name', 'orderit') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                </a> 
+                
+                <div class="d-flex">
+                    <div class="cart-link">
+                        <a href="{{ route('cart.index')}}">
+                            <i class="fas fa-boxes"></i>
+                            @if (Cart::count() > 0)
+                            <span class="cant-count">{{ Cart::count() }}</span>
+                            @endif
+                        
+                        </a>
+                    </div>
+                        
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
@@ -54,7 +65,7 @@
                                         <div class="dropdown-container-right --back-color-secondary --text-white text-center --padding-20">
                                             <a href="#"><i class="fas fa-user-circle"></i></a>
                                             <p>{{ Auth::user()->nombre . " " . Auth::user()->apellido  }} <span class="caret"></span></p>
-                                            <button class="bt-secondary">Mi cuenta</button>
+                                            <button class="bt-secondary-white">Mi cuenta</button>
                                         </div>
         
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -72,8 +83,8 @@
                         <nav class="sidebar">
         
                             <ul class="list-unstyled components">
-                                <li class="active">
-                                    <a href="#">
+                                <li class="{{ active(['home', 'home/*']) }}">
+                                    <a href="{{ url('/home') }}">
                                         <i class="fas fa-home"></i>
                                         <p>Inicio</p>
                                     </a>
@@ -125,10 +136,28 @@
         <div class="wrapper">
             <!-- Sidebar  -->
             <nav id="sidebar" class="sidebar position-fixed">
-        
+              
+                
+                <div class="cart-link text-center">
+                    <a href="{{ route('cart.index')}}"><i class="fas fa-boxes"></i></a>
+                    @if (Cart::count() > 0)
+
+                    <div class="mt-2">
+                        <span class="cant-count mini">{{ Cart::count() }}</span>
+                    </div>
+                    
+                    @endif
+                    <a class="mi-pedido" href="{{ route('cart.index')}}">
+                        @if (Cart::count() > 0)
+                        <span class="cant-count">{{ Cart::count() }}</span>
+                        @endif
+                        Mi pedido</a>
+                </div>
+                
+
                 <ul class="list-unstyled components">
-                    <li class="active">
-                        <a href="#">
+                    <li class="{{ active(['home', 'home/*']) }}">
+                        <a href="{{ url('/home') }}">
                             <i class="fas fa-home"></i>
                             <p>Inicio</p>
                         </a>
@@ -177,7 +206,7 @@
             <!-- Page Content  -->
             <div id="content">
             
-                <main class="py-4 p-0">
+                <main class="p-0">
                     @yield('content')
                 </main>
 

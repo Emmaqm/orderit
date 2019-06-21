@@ -1,3 +1,5 @@
+@import 'variables';
+
 .products{
     &.d-flex{
         flex-wrap: wrap;
@@ -50,7 +52,7 @@
 
         .product-btn{
             margin-top: 2%;
-            padding: 6px 40px;
+            padding: 6px 30px;
             font-size: 1.1em;   
         }
     }
@@ -72,7 +74,9 @@
         }
 
         .card{
-            width: 140px;
+
+            max-width: 200px;
+            margin: 0 auto;
 
             .card-body{
                 padding: 0.6rem;
@@ -88,4 +92,68 @@
         }
     }
 
+    @media (max-width: 460px) {
+        .col-6{
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+
+}
+
+.cart{
+    max-width: 550px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.1);
+
+    .cart-row{
+
+        .cart-product-image{
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 4px;
+
+            img{
+                max-height: 110px;
+                max-width: 130px;
+            }
+        }
+
+        .cart-product-name{
+           
+            a{
+                cursor: pointer;
+            }
+
+            a:hover{
+                text-decoration: none;
+            }
+        }
+
+        .remove-btn{
+
+            button{
+                padding: 0;
+                padding-left: 2px;
+                margin: 0;
+                border: 0;
+                background-color: transparent;
+                color: $dark-grey;
+
+                &:hover{
+                    transition: 0.2s;
+                    color: $primary-color-1;
+                }
+            }
+        }
+    }
+
+}
+
+
+@media (max-width: 767px) {
+    .cart{
+        margin: 0 auto;   
+    }
 }

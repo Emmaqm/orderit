@@ -47,7 +47,7 @@
 
 .product .product-form .product-btn {
   margin-top: 2%;
-  padding: 6px 40px;
+  padding: 6px 30px;
   font-size: 1.1em;
 }
 
@@ -68,7 +68,8 @@
 }
 
 .product .also-like .card {
-  width: 140px;
+  max-width: 200px;
+  margin: 0 auto;
 }
 
 .product .also-like .card .card-body {
@@ -78,6 +79,59 @@
 @media (min-width: 576px) {
   .product .product-right {
     margin-top: 0;
+  }
+}
+
+@media (max-width: 460px) {
+  .product .col-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+.cart {
+  max-width: 550px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.cart .cart-row .cart-product-image {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.cart .cart-row .cart-product-image img {
+  max-height: 110px;
+  max-width: 130px;
+}
+
+.cart .cart-row .cart-product-name a {
+  cursor: pointer;
+}
+
+.cart .cart-row .cart-product-name a:hover {
+  text-decoration: none;
+}
+
+.cart .cart-row .remove-btn button {
+  padding: 0;
+  padding-left: 2px;
+  margin: 0;
+  border: 0;
+  background-color: transparent;
+  color: #747980;
+}
+
+.cart .cart-row .remove-btn button:hover {
+  transition: 0.2s;
+  color: #EF684A;
+}
+
+@media (max-width: 767px) {
+  .cart {
+    margin: 0 auto;
   }
 }
 

@@ -33,9 +33,10 @@ class HomeController extends Controller
 
     public function show($slug)
     {
+        $slug = explode("-", $slug);
 
-        $product = Product::where('nombre', $slug)->firstOrFail();
-        $alsoLike = Product::where('nombre', '!=' , $slug)->inRandomOrder()->take(5)->get();
+        $product = Product::where('nombre', $slug[1])->firstOrFail();
+        $alsoLike = Product::where('nombre', '!=' , $slug)->inRandomOrder()->take(6)->get();
 
 
         return view('product')->with([

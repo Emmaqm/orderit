@@ -14,6 +14,7 @@ html{
 body{
   background-color: #fafafa;
   font-family: $font-family-sans-serif;
+  font-display: swap;
 
   .bt-primary{
     color: white;
@@ -33,6 +34,21 @@ body{
   }
 
   .bt-secondary{
+    color: $primary-color-1;
+    background-color: transparent;
+    padding: 4px 20px;
+    border-radius: 20px;
+    border: 2px solid $primary-color-1;  
+
+    &:hover{
+      background-color: $primary-color-1;
+      color: white; 
+      transition: 0.2s; 
+    }
+
+  }
+
+  .bt-secondary-white{
     color: white;
     background-color: transparent;
     padding: 2px 20px;
@@ -40,7 +56,6 @@ body{
     border: 2px solid white;  
 
     &:hover{
-      border-color: white;
       background-color: white;
       color: $primary-color-1; 
       transition: 0.2s; 
@@ -169,7 +184,7 @@ body{
   border-bottom: 1px solid rgba(0,0,0,.0975);
   padding: 0.8rem 1rem;
   height: 70px;
-
+  
   .container-fluid{
     padding: 15px 40px;
 
@@ -183,7 +198,8 @@ body{
 
               display: flex;
             }
-            
+          
+
             .dropdown-container-left{
               a{
                 padding: 0.5rem 1.5rem;
@@ -219,6 +235,28 @@ body{
             }
           }
       }
+  }
+
+  .cart-link{
+    padding: 0.25rem;
+    font-size: 1.3rem;
+    display: none;
+
+    .cant-count{
+      right: 9px;
+      top: -12px;
+      font-size: 0.8rem;
+      margin-left: 2px;
+      padding: 2px 6.5px 3px 6.5px;
+      color: white;
+      background-color: orange;
+      border-radius: 20px;
+      position: relative;
+    }
+
+    a{
+      color: $primary-color-1;
+    }
   }
 
   .navbar-toggler{
@@ -258,6 +296,38 @@ body{
     border-right: 1px solid rgba(0,0,0,.0975);
     height: calc(100vh - 70px);
 
+    .cart-link{
+      padding: 20px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      margin-top: 5px;
+
+      .cant-count{
+        margin-right: 2px;
+        padding: 1px 7px 3px 7px;
+        color: white;
+        background-color: orange;
+        border-radius: 20px;
+        margin-left: -10px;
+      }
+
+      .cant-count.mini{
+        display: none;
+      }
+
+      i{
+        color: $primary-color-1;
+        font-size: 40px;
+      }
+
+      a{
+        display: block;
+        padding-top: 10px;
+        font-size: 1.1em;
+        color: $darkest-grey;
+        text-decoration: none;
+      }
+    }
+
     .fa-warehouse{
       transform: scale(0.8,1);
     }
@@ -277,7 +347,7 @@ body{
     }
 
     ul.components {
-      padding: 20px 0;
+      padding: 10px 0 20px 0;
     }
 
     ul{
@@ -348,7 +418,7 @@ body{
           color: $primary-color-1;
           background: white;
           border-left: 4px solid $primary-color-1;
-          padding-left: 6px;
+          padding-left: 6px !important;
         }
 
       }
@@ -363,6 +433,23 @@ body{
     .btn-dock{
       left: 0px;
       transition: 0.3s;
+    }
+
+    .cart-link{
+
+      .cant-count.mini{
+        display: initial;
+        margin: 0 auto;
+      }
+
+      i{
+        font-size: 2em;
+      }
+
+      .mi-pedido{
+        display: none;
+      }
+    
     }
 
     ul{
@@ -426,15 +513,15 @@ body{
     /*-------------End Sidebar--------------*/
 
   #content {
+    margin-left: 220px;
     width: 100%;
     padding: 20px;
     min-height: calc(100vh - 70px);
-    transition: 0.3s;
-    margin-left: 220px;
   }
 
   #content.mini{
     margin-left: 80px;
+    transition: 0.3s;
   }
 
 }
@@ -473,6 +560,10 @@ body{
 
     .container-fluid {
       padding: 0px 15px;
+    }
+
+    .cart-link{
+      display: initial;
     }
   }
 
@@ -533,12 +624,12 @@ body{
 
       ul li.active > a{
         border: none;
-        padding: 10px;
+        padding: 10px !important;
       }
 
       ul li > a[aria-expanded=true]{
         border: none;
-        padding: 10px;
+        padding: 10px !important;
       }
 
       .dropdown-user{

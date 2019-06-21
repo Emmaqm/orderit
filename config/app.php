@@ -136,6 +136,8 @@ return [
 
     'providers' => [
 
+        Watson\Active\ActiveServiceProvider::class,
+
         /*
          * Laravel Framework Service Providers...
          */
