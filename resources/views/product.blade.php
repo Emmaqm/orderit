@@ -23,9 +23,11 @@
                 @csrf
                 <div class="form-group row product-form">
                     <label for="cantidad-producto" class="text--dark-grey col-form-label cant-label">Cantidad:</label>
-                    <div class="cant-wrapper">
-                      <input id="cantidad-producto" class="form-control" type="number" value="1" min="1" max="20">
-                    </div>
+                    <select class="form-control cantidad" name="selectCantidad">
+                        @for ($i = 1; $i < 11; $i++)
+                            <option>{{$i}}</option>
+                        @endfor
+                    </select>
                     <div class="col-12">
                         <button type="submit" class="text-center btn bt-primary product-btn">Agregar a mi pedido</button>
                     </div>

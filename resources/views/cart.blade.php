@@ -50,23 +50,43 @@
                 </form>
             </div>
 
-
-
-
             <div class="d-flex align-items-center pl-5 ml-5">
-                <input id="cantidad-producto" class="form-control" type="number" value="1" min="1" max="20">
+                <select class="form-control cantidad" name="selectCantidad" data-id="{{ $product->rowId }}">
+                    @for ($i = 1; $i < 11; $i++)
+                        <option {{ $product->qty == $i ? 'selected' : ''}}>{{$i}}</option>
+                    @endfor
+                </select>
             </div>
 
-            <div class="d-flex align-items-center pl-4">
-                <p class="product-price">{{ $product->model->presentPrice() }}</p>
+            <div class="d-flex align-items-center pl-4 ml-1">
+                <h5 class="product-price m-0 mb-2">{{ presentPrice($product->subtotal) }}</h5>
             </div>
            
         </div>
     @endforeach
 
-    <div class="totales">
-        Total {{ presentPrice(Cart::total()) }}
+    <div class="totales mt-4">
 
+        <div class="prices text-right ml-2 mr-2 mt-2 mb-4 pt-4 pb-4 pr-4">
+            <div class="column-label">
+                <p class="mr-4 text--dark-grey">Descuentos</p>
+                <h4 class="mr-4 text--darkest-grey">Total</h4>
+            </div>
+
+            <div class="column-prices">
+                <p>$9.00</p>
+                <h4>{{ presentPrice(Cart::total()) }}</h4> 
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <a class="ml-3 mt-1 btn-link" href="{{ route('home.index') }}"><i class="fas fa-arrow-left mr-2"></i>Seguir Comprando</a>
+
+            <a class="mr-2 bt-primary btn text-right" href="#">Finalizar mi Pedido</a>
+        </div>
+
+
+        
     </div>
 
 </div>
@@ -74,3 +94,26 @@
 @endsection
 
 
+@section('extra-js')
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+        (function(){
+            var className = document.querySelectorAll('.cantidad');
+
+            Array.from(className).forEach(function(element){
+                element.addEventListener('change', function(){
+                    const id = element.getAttribute('data-id');
+                    axios.patch(`/pedido/${id}`, {
+                        cantidad: this.value
+                    })
+                    .then(function (response) {
+                        window.location.href = ' {{ route('cart.index') }} '
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+                })
+            })
+        })();
+    </script>
+@endsection

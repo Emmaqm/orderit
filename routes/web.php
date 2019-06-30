@@ -13,4 +13,6 @@ Route::post('/pedido/{product}', 'CartController@store')->name('cart.store');
 
 Route::delete('/pedido/{product}', 'CartController@destroy')->name('cart.destroy');
 
+Route::patch('/pedido/{product}', 'CartController@update')->name('cart.update');
+
 Route::get('/home/{product}', 'HomeController@show')->name('home.show');
