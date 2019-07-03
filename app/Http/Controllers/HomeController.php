@@ -33,13 +33,21 @@ class HomeController extends Controller
             })->get();
             $categories = Category::all();
             $subcategories = Subcategory::all();
+            $categoryName = $subcategories->where('nom_low', request()->category)->first()->nombre;
+
         } else {
             $products = Product_type::inRandomOrder()->get();
             $categories = Category::all();
             $subcategories = Subcategory::all();
+            $categoryName = 'Productos Destacados';
         }
         
-
+        if (request()->sort == 'low_high') {
+            $products = $products->sortBy('precio');
+        } elseif (request()->sort == 'high_low') {
+            $products = $products->sortByDesc('precio');
+        }
+        
 
 
 
@@ -47,6 +55,7 @@ class HomeController extends Controller
             'products' => $products,
             'categories' => $categories,
             'subcategories' => $subcategories,
+            'categoryName' => $categoryName,
         ]);
     }
 

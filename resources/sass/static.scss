@@ -46,6 +46,30 @@ body{
       transition: 0.2s; 
     }
 
+
+  }
+
+  .bt-dropdown{
+
+    &:focus{
+      box-shadow: 0 0 0 0.1rem #ef684a4f;
+      color: $primary-color-1;
+
+      &:hover{
+        color: $primary-color-1;
+      }
+    }
+  }
+
+  .dropdown-item{
+    &:focus{
+      color:unset !important;
+      background-color: unset !important; 
+    }
+
+    &:hover{
+      color: $primary-color-1;
+    }
   }
 
   .bt-secondary-white{
@@ -261,6 +285,10 @@ body{
 
     a{
       color: $primary-color-1;
+
+      &:hover{
+        text-decoration: unset;
+      }
     }
   }
 

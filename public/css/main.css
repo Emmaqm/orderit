@@ -16466,6 +16466,24 @@ body .bt-secondary:hover {
   transition: 0.2s;
 }
 
+body .bt-dropdown:focus {
+  box-shadow: 0 0 0 0.1rem #ef684a4f;
+  color: #EF684A;
+}
+
+body .bt-dropdown:focus:hover {
+  color: #EF684A;
+}
+
+body .dropdown-item:focus {
+  color: unset !important;
+  background-color: unset !important;
+}
+
+body .dropdown-item:hover {
+  color: #EF684A;
+}
+
 body .bt-secondary-white {
   color: white;
   background-color: transparent;
@@ -16670,6 +16688,10 @@ body .\--border-top {
 
 .navbar-top .cart-link a {
   color: #EF684A;
+}
+
+.navbar-top .cart-link a:hover {
+  text-decoration: unset;
 }
 
 .navbar-top .navbar-toggler {
@@ -17111,6 +17133,21 @@ body .\--border-top {
     left: unset;
     right: 0;
   }
+}
+
+.home-title .underline {
+  width: 60px;
+  float: left;
+  height: 3px;
+  background-color: #ef684a;
+  margin-left: 3.1rem;
+}
+
+.home-title .del-sort {
+  position: relative;
+  top: 1px;
+  left: 2px;
+  color: #EF684A;
 }
 
 .products.d-flex {

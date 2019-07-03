@@ -4,7 +4,46 @@
 
 @section('content')
 
+<div class="home-title mb-3 d-flex justify-content-between">
+  <div>
+      <h2 class="ml-5 mt-1 mb-2 text--darkest-grey">{{ $categoryName }}</h2>
+      <span class="underline"></span>
+  </div>
+
+  <div class="d-flex mr-5 mt-1 mb-2 text--darkest-grey" style="padding:3px;">
+
+      @if (request()->sort)
+      <div class="btn text--dark-grey mr-2" style="border: 1px solid rgba(0,0,0,0.1)">
+          <p class="m-0">Filtro: 
+  
+            @if (request()->sort == "low_high")
+              <span class="ml-1">Menor precio</span> <a href="{{ route('home.index') }}" class="fas fa-times del-sort"></a> 
+            @elseif (request()->sort == "high_low")
+              <span class="ml-1">Mayor precio</span> <a href="{{ route('home.index') }}" class="fas fa-times del-sort"></a> 
+            @endif
+          
+          </p>
+        </div>
+      @endif
+
+
+      <div class="dropdown">
+          <button class="dropdown-toggle btn bt-dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Ordenar por precio
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="{{ route('home.index', ['category'=> request()->category, 'sort'=> 'low_high']) }}">Menor Precio</a>
+            <a class="dropdown-item" href="{{ route('home.index', ['category'=> request()->category, 'sort'=> 'high_low']) }}">Mayor Precio</a>
+          </div>
+        </div>
+  </div>
+
+</div>
+
+
 <div class="products container-fluid p-0 justify-content-center d-flex">
+
+  
 
   @if ($products->isEmpty())
       

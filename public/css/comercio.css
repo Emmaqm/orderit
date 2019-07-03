@@ -1,3 +1,18 @@
+.home-title .underline {
+  width: 60px;
+  float: left;
+  height: 3px;
+  background-color: #ef684a;
+  margin-left: 3.1rem;
+}
+
+.home-title .del-sort {
+  position: relative;
+  top: 1px;
+  left: 2px;
+  color: #EF684A;
+}
+
 .products.d-flex {
   flex-wrap: wrap;
 }
