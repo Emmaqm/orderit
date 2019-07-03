@@ -22,7 +22,6 @@
 
         <p class="m-0 alert alert-primary" role="alert">No tiene productos en su Pedido</p>
         <br>
-        <a class="btn bt-secondary" href="{{ route('home.index') }}">Continuar comprando</a>
 
     @endif
 
@@ -65,29 +64,38 @@
         </div>
     @endforeach
 
-    <div class="totales mt-4">
 
-        <div class="prices text-right ml-2 mr-2 mt-2 mb-4 pt-4 pb-4 pr-4">
-            <div class="column-label">
-                <p class="mr-4 text--dark-grey">Descuentos</p>
-                <h4 class="mr-4 text--darkest-grey">Total</h4>
+    @if (Cart::count() > 0)
+
+        <div class="totales mt-4">
+
+            <div class="prices text-right ml-2 mr-2 mt-2 mb-4 pt-4 pb-4 pr-4">
+                <div class="column-label">
+                    <p class="mr-4 text--dark-grey">Descuentos</p>
+                    <h4 class="mr-4 text--darkest-grey">Total</h4>
+                </div>
+
+                <div class="column-prices">
+                    <p>$9.00</p>
+                    <h4>{{ presentPrice(Cart::total()) }}</h4> 
+                </div>
             </div>
 
-            <div class="column-prices">
-                <p>$9.00</p>
-                <h4>{{ presentPrice(Cart::total()) }}</h4> 
+            <div class="d-flex justify-content-between">
+                <a class="ml-3 mt-1 btn-link" href="{{ route('home.index') }}"><i class="fas fa-arrow-left mr-2"></i>Seguir Comprando</a>
+
+                <a class="mr-2 bt-primary btn text-right" href="#">Finalizar mi Pedido</a>
             </div>
         </div>
+
+    @else
 
         <div class="d-flex justify-content-between">
-            <a class="ml-3 mt-1 btn-link" href="{{ route('home.index') }}"><i class="fas fa-arrow-left mr-2"></i>Seguir Comprando</a>
-
-            <a class="mr-2 bt-primary btn text-right" href="#">Finalizar mi Pedido</a>
+            <a class="ml-2 mt-1 btn-link" href="{{ route('home.index') }}"><i class="fas fa-arrow-left mr-2"></i>Seguir Comprando</a>
         </div>
 
+    @endif
 
-        
-    </div>
 
 </div>
 
@@ -95,7 +103,6 @@
 
 
 @section('extra-js')
-    <script src="{{ asset('js/app.js') }}"></script>
     <script>
         (function(){
             var className = document.querySelectorAll('.cantidad');

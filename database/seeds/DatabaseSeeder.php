@@ -13,15 +13,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         
-        /*DB::table('products')->insert([
-            'nombre' => 'Galleta',
-            'marca'=> 'Bridge',
-            'descripcion'=> 'Oblea de vainilla rellena de chocolate',
-            'estado'=> 'activo',
-            'capacidad'=> '60grs',
-            'precio'=> 70,
-            'imagen_url'=> 'galleta-bridge',
-        ]);*/
+        $this->call(CategoriesTableSeeder::class);
+        $this->call(SubcategoriesTableSeed::class);
+
+
 
     }
 }

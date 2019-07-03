@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
+use App\Product_type;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Validator;
@@ -32,10 +32,10 @@ class CartController extends Controller
   /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Product_type  $product
      * @return \Illuminate\Http\Response
      */
-    public function store(Product $product)
+    public function store(Product_type $product)
     {
         $duplicados = Cart::search(function ($carItem, $rowId) use ($product){
             return $carItem->id === $product->id;
@@ -46,7 +46,7 @@ class CartController extends Controller
         }
 
         Cart::add($product->id, $product->nombre, 1, $product->precio)
-              ->associate('App\Product');
+              ->associate('App\Product_type');
 
         return redirect()->route('cart.index')->with('success_message', '¡El producto ha sido añadido al Pedido!');
     }

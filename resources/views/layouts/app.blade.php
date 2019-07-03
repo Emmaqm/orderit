@@ -83,7 +83,7 @@
                         <nav class="sidebar">
         
                             <ul class="list-unstyled components">
-                                <li class="{{ active(['home', 'home/*']) }}">
+                                <li class="{{ active(['home', 'home/*', '/']) }}">
                                     <a href="{{ url('/home') }}">
                                         <i class="fas fa-home"></i>
                                         <p>Inicio</p>
@@ -133,6 +133,7 @@
             </div>
         </nav>
 
+
         <div class="wrapper">
             <!-- Sidebar  -->
             <nav id="sidebar" class="sidebar position-fixed">
@@ -156,17 +157,15 @@
                 
 
                 <ul class="list-unstyled components">
-                    <li class="{{ active(['home', 'home/*']) }}">
+                    <li class="{{ active(['home', 'home/*', '/']) }}">
                         <a href="{{ url('/home') }}">
                             <i class="fas fa-home"></i>
                             <p>Inicio</p>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            <i class="fas fa-th-large"></i>
-                            <p>Categorías</p>
-                        </a>
+                        @yield('categories')
+                        
                         <a href="#">
                             <i class="fas fa-warehouse"></i>
                             <p>Proveedores</p>

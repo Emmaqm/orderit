@@ -48,3 +48,40 @@ $(document).ready(function () {
 
 });
 
+$(document).ready(function () {
+
+    var categories = document.getElementsByClassName("category");
+
+    for (i=0 ; i < categories.length ; i++) {
+        categories[i].addEventListener("click", function(e){
+            e.stopPropagation();
+            e.preventDefault();
+        });
+
+        categories[i].addEventListener("mouseover", function(e){
+            e.stopPropagation();
+            e.preventDefault();
+
+            for (i=0 ; i < categories.length ; i++) {
+                $(categories[i]).removeClass("activeCat");
+            }
+
+            $(this).toggleClass("activeCat");
+
+            var subcategories = document.getElementsByClassName("subcategories");
+            for (i=0 ; i < subcategories.length ; i++) {
+                $(subcategories[i]).hide();
+            }
+
+            var currentCatId = document.querySelector(".activeCat").id;
+
+            document.getElementById(currentCatId + "-items").style.display = "block";
+
+        });
+    }
+
+});
+
+
+
+

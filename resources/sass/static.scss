@@ -75,6 +75,11 @@ body{
   
   .--text-white{
     color: white;
+
+
+    &:hover{
+      color: $primary-color-1;
+    }
   }
 
   .--reset-link{
@@ -295,6 +300,7 @@ body{
     transition: 0.3s;
     border-right: 1px solid rgba(0,0,0,.0975);
     height: calc(100vh - 70px);
+    z-index: 1;
 
     .cart-link{
       padding: 20px;
@@ -314,6 +320,7 @@ body{
         display: none;
       }
 
+
       i{
         color: $primary-color-1;
         font-size: 40px;
@@ -331,6 +338,50 @@ body{
     .fa-warehouse{
       transform: scale(0.8,1);
     }
+    
+    .dropdown{
+
+      .categories{
+        padding: 12px 0;
+
+        a{
+          margin: 0;
+          color: white;
+          padding: 10px 45px 10px 20px;
+
+          &:hover{
+            color: $primary-color-1;
+          }
+
+          &.activeCat{
+            color: #EF684A !important;
+            background-color: white !important;
+          }
+
+          &:focus{
+            background-color: unset;
+            color: white;
+          }
+        }
+      }
+
+      .subcategories{
+        padding: 12px 0;
+        display: none;
+        a{
+          margin: 0;
+          padding: 10px 30px 10px 30px;
+
+          &:hover{
+            
+          }
+
+
+        }
+      }
+
+    }
+
 
     .btn-dock{
       padding: 10px 27px;
@@ -530,20 +581,6 @@ body{
   display: none;
 }
 /*-----------End Page Content-----------*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* ---------------------------------------------------
   MEDIAQUERIES
