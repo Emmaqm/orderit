@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use App\Subcategory;
 use App\Product_type;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -16,7 +18,15 @@ class CartController extends Controller
      */
     public function index()
     {
-        return view('cart');
+
+        $categories = Category::all();
+        $subcategories = Subcategory::all();
+        
+        return view('cart')->with([
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+        ]);
+
     }
 
     /**

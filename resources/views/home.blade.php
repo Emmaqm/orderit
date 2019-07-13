@@ -6,7 +6,7 @@
 
 <div class="home-title mb-3 d-flex justify-content-between">
   <div>
-      <h2 class="ml-5 mt-1 mb-2 text--darkest-grey">{{ $categoryName }}</h2>
+      <h4 class="ml-5 mt-1 mb-2 text--darkest-grey">{{ $categoryName }}</h4>
       <span class="underline"></span>
   </div>
 
@@ -17,9 +17,9 @@
           <p class="m-0">Filtro: 
   
             @if (request()->sort == "low_high")
-              <span class="ml-1">Menor precio</span> <a href="{{ route('home.index') }}" class="fas fa-times del-sort"></a> 
+              <span class="ml-1">Menor precio</span> <a href="{{ route('home.index', ['category'=> request()->category, 'sort'=> '']) }}" class="fas fa-times del-sort"></a> 
             @elseif (request()->sort == "high_low")
-              <span class="ml-1">Mayor precio</span> <a href="{{ route('home.index') }}" class="fas fa-times del-sort"></a> 
+              <span class="ml-1">Mayor precio</span> <a href="{{ route('home.index', ['category'=> request()->category, 'sort'=> '']) }}" class="fas fa-times del-sort"></a> 
             @endif
           
           </p>
@@ -86,9 +86,9 @@
       <p>Categorías</p>
   </a>
 
-  <div class="dropdown-menu p-0" aria-labelledby="dropdownMenuLink">
+  <div class="dropdown-menu p-0" id="categories-container" aria-labelledby="dropdownMenuLink">
 
-      <div class="d-flex">
+      <div class="d-flex" id="categories-wrapper">
           <div class="categories --back-color-secondary">
             @foreach ($categories as $category)
               <a id="{{ $category->nom_low }}" class="category dropdown-item" href="#">{{ $category->nombre }}</a>
@@ -96,10 +96,10 @@
           </div>
             
             @foreach ($categories as $category)
-              <div id="{{ $category->nom_low }}-items" class="subcategories">
+              <div id="{{ $category->nom_low }}-items" class="subcategories flex-column flex-wrap">
                   @foreach ($subcategories as $subcategory)
                     @if ($subcategory->category_id == $category->id)
-                      <a class="dropdown-item" href="{{ route('home.index', ['category'=> $subcategory->nom_low]) }}">{{ $subcategory->nombre }}</a>
+                      <a class="dropdown-item subcategory" href="{{ route('home.index', ['category'=> $subcategory->nom_low]) }}">{{ $subcategory->nombre }}</a>
                     @endif
                   @endforeach
         
@@ -110,5 +110,30 @@
       
   </div>
 </div>
+
+@endsection
+
+@section('extra-js')
+
+<script>
+
+(function(){
+  var categoria = document.getElementsByClassName('category');
+  var catwrap = document.getElementById('categories-wrapper');
+  var catcont = document.getElementById('categories-container');
+  const catpadding = 24;
+  const catheight = 40;
+
+  var catxwidth = categoria.length * catheight;
+
+  var catwidth = catpadding + catxwidth;
+
+  catwrap.style.height =  catwidth + catheight + "px";
+
+}());
+
+</script>
+
+    
 @endsection
 

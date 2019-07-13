@@ -49,8 +49,6 @@ class HomeController extends Controller
         }
         
 
-
-
         return view('home')->with([
             'products' => $products,
             'categories' => $categories,
@@ -66,10 +64,15 @@ class HomeController extends Controller
         $product = Product_type::where('nombre', $slug[1])->firstOrFail();
         $alsoLike = Product_type::where('nombre', '!=' , $slug)->inRandomOrder()->take(6)->get();
 
+        $categories = Category::all();
+        $subcategories = Subcategory::all();
+
 
         return view('product')->with([
             'product' => $product,
             'alsoLike' => $alsoLike,
+            'categories' => $categories,
+            'subcategories' => $subcategories,
         ]);
 
     }

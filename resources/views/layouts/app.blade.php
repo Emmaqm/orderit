@@ -90,7 +90,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="#" data-toggle="modal" data-target="#categories-modal">
                                         <i class="fas fa-th-large"></i>
                                         <p>Categorías</p>
                                     </a>
@@ -127,12 +127,10 @@
                         </nav>  
 
                     </div>
-                    <!-- Right Side Of Navbar -->
                   
                 </div>
             </div>
         </nav>
-
 
         <div class="wrapper">
             <!-- Sidebar  -->
@@ -209,6 +207,44 @@
                     @yield('content')
                 </main>
 
+            </div>
+
+
+
+            <div class="modal fade d-md-none" id="categories-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                    
+                      <h5 id="categories-modal-title" class="modal-title modal-title-categorias ml-2">Categorías</h5>
+                      <h5 id="back-subcategories" class="modal-title modal-title-subcategorias ml-2"><span class="btn-link"><i class="fas fa-arrow-left mr-3"></i></span><span id="subcategories-span"></span></h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <div class="categories-responsive">
+                            @foreach ($categories as $category)
+                                <a id="{{ $category->nom_low }}R" class="category-responsive dropdown-item" href="#">{{ $category->nombre }} <i class="fas fa-chevron-right btn-link"></i></a>
+                            @endforeach
+                        </div>
+                                    
+                        @foreach ($categories as $category)
+                            <div id="{{ $category->nom_low }}R-itemsR" class="subcategories-responsive">
+                                @foreach ($subcategories as $subcategory)
+                                    @if ($subcategory->category_id == $category->id)
+                                        <a class="dropdown-item subcategory-responsive" href="{{ route('home.index', ['category'=> $subcategory->nom_low]) }}">{{ $subcategory->nombre }}</a>
+                                    @endif
+                                @endforeach
+                            </div>
+                        @endforeach
+                                      
+
+                    </div>
+
+                  </div>
+                </div>
             </div>
         </div>
 
