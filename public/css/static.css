@@ -9,6 +9,7 @@ html {
 }
 
 body {
+  overflow-x: hidden;
   background-color: #fafafa;
   font-family: "Lato", sans-serif;
   font-display: swap;
@@ -127,7 +128,12 @@ body .btn-link:hover {
   color: #EF684A;
 }
 
+body .form-control.cantidad {
+  width: 62px;
+}
+
 body .form-control {
+  min-width: 6 0px;
   margin-bottom: 10px;
 }
 

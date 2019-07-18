@@ -12,6 +12,7 @@ html{
 }
 
 body{
+  overflow-x: hidden;
   background-color: #fafafa;
   font-family: $font-family-sans-serif;
   font-display: swap;
@@ -138,9 +139,14 @@ body{
     }
   }
   
+  .form-control.cantidad{
+    width: 62px;
+  }
+
   .form-control{
-  
+    min-width: 6  0px;
     margin-bottom: 10px;
+    
   
     &:focus{
       border-color: $primary-color-3;

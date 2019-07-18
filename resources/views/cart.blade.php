@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="cart justify-content-center">
+<div class="cart">
 
     @if (session()->has('success_message'))
         <div class="alert alert-success" role="alert">
@@ -27,40 +27,47 @@
 
 
     @foreach (Cart::content() as $product)
-        <div class="row cart-row pl-4 pr-4 mt-3">
+        <div class="row cart-row pl-4 pr-4 mt-3 justify-content-between flex-sm-nowrap">
            
-            <div class="cart-product-image">
-                <a href="{{ route('home.show', $product->model->id . "-" . $product->model->nombre) }}">
-                    <img src="{{ asset('img/products/'. $product->model->imagen_url) }}" alt="{{ $product->model->nombre}} ">
-                </a>
-            </div>
-
-            <div class="pl-4 pt-4 cart-product-name">
-                <a href="{{ route('home.show', $product->model->id . "-" . $product->model->nombre) }}">
-                    <h4 class="text--darkest-grey">{{ $product->model->nombre }}</h4>
-                </a>
+            <div class="d-flex">
+                <div class="cart-product-image">
+                    <a href="{{ route('home.show', $product->model->id . "-" . $product->model->nombre) }}">
+                        <img src="{{ asset('img/products/'. $product->model->imagen_url) }}" alt="{{ $product->model->nombre}} ">
+                    </a>
+                </div>
+    
+                <div class="cart-product-name ml-sm-4 ml-3 pt-0 pt-sm-4 mr-sm-4 mr-2">
+                    <a href="{{ route('home.show', $product->model->id . "-" . $product->model->nombre) }}">
+                        <h5 class="text--darkest-grey">{{ $product->model->nombre }}</h5>
+                    </a>
+                    
                 
-            
-                <form class="remove-btn" action="{{ route('cart.destroy', $product->rowId) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                
-                    <button type="submit">Eliminar</button>
-                </form>
+                    <form class="remove-btn" action="{{ route('cart.destroy', $product->rowId) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                    
+                        <button type="submit">Eliminar</button>
+                    </form>
+                </div>
             </div>
 
-            <div class="d-flex align-items-center pl-5 ml-5">
-                <select class="form-control cantidad" name="selectCantidad" data-id="{{ $product->rowId }}">
-                    @for ($i = 1; $i < 11; $i++)
-                        <option {{ $product->qty == $i ? 'selected' : ''}}>{{$i}}</option>
-                    @endfor
-                </select>
-            </div>
 
-            <div class="d-flex align-items-center pl-4 ml-1">
-                <h5 class="product-price m-0 mb-2">{{ presentPrice($product->subtotal) }}</h5>
+            <div class="d-sm-flex justify-content-end mr-2">
+
+                <div class="d-flex align-items-center">
+                    <select class="form-control cantidad" name="selectCantidad" data-id="{{ $product->rowId }}">
+                        @for ($i = 1; $i < 11; $i++)
+                                <option {{ $product->qty == $i ? 'selected' : ''}}>{{$i}}</option>
+                        @endfor
+                    </select>
+                </div>
+        
+                <div class="d-flex align-items-center pl-sm-4 pl-2 ml-1">
+                    <h5 class="product-price m-0 mb-2">{{ presentPrice($product->subtotal) }}</h5>
+                </div>
+
             </div>
-           
+  
         </div>
     @endforeach
 
@@ -69,7 +76,7 @@
 
         <div class="totales mt-4">
 
-            <div class="prices text-right ml-2 mr-2 mt-2 mb-4 pt-4 pb-4 pr-4">
+            <div class="prices text-right ml-2 mr-2 mt-2 mb-4 pt-sm-4 pt-3 mb-sm-4 pt-sm-4 pb-3 pr-4">
                 <div class="column-label">
                     <p class="mr-4 text--dark-grey">Descuentos</p>
                     <h4 class="mr-4 text--darkest-grey">Total</h4>
@@ -82,7 +89,7 @@
             </div>
 
             <div class="d-flex justify-content-between">
-                <a class="ml-3 mt-1 btn-link" href="{{ route('home.index') }}"><i class="fas fa-arrow-left mr-2"></i>Seguir Comprando</a>
+                <a class="ml-3 mt-1 btn-link" href="{{ route('home.index') }}"><i class="fas fa-arrow-left mr-2"></i><span class="d-sm-inline d-none">Seguir Comprando</span></a>
 
                 <a class="mr-2 bt-primary btn text-right" href="#">Finalizar mi Pedido</a>
             </div>
