@@ -40,9 +40,9 @@
         <p class="m-0">
 
           @if (request()->sort == "low_high")
-            <span>Menor precio</span> <a href="{{ route('home.index', ['category'=> request()->category, 'sort'=> '']) }}" class="fas fa-times del-sort"></a> 
+            <span>Menor precio</span> <a href="{{ route('home.index', ['category'=> request()->category, '']) }}" class="fas fa-times del-sort"></a> 
           @elseif (request()->sort == "high_low")
-            <span>Mayor precio</span> <a href="{{ route('home.index', ['category'=> request()->category, 'sort'=> '']) }}" class="fas fa-times del-sort"></a> 
+            <span>Mayor precio</span> <a href="{{ route('home.index', ['category'=> request()->category, '']) }}" class="fas fa-times del-sort"></a> 
           @endif
         
         </p>
@@ -54,11 +54,9 @@
 
 <div class="products container-fluid p-0 justify-content-center d-flex">
 
-  
-
   @if ($products->isEmpty())
       
-    <h3 class="text--darkest-grey mt-5 w-100 text-center">No hay Productos disponibles en esta Categoría (aún).</h3>
+    <h3 class="text--darkest-grey mt-5 w-100 text-center">No se encontraron Productos.</h3>
     <br>
     <p class="text--dark-grey mt-2 w-100 text-center">Estamos en continua incorporación de nuevos Proveedores. Este mensaje no durará mucho tiempo.</p>
 
@@ -88,68 +86,14 @@
     
     @endforeach
   @endif
-
-  
+ 
 </div>
 
-@endsection
-
-
-@section('categories')
-<div class="dropdown show dropright">
-  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <i class="fas fa-th-large"></i>
-      <p>Categorías</p>
-  </a>
-
-  <div class="dropdown-menu p-0" id="categories-container" aria-labelledby="dropdownMenuLink">
-
-      <div class="d-flex" id="categories-wrapper">
-          <div class="categories --back-color-secondary">
-            @foreach ($categories as $category)
-              <a id="{{ $category->nom_low }}" class="category dropdown-item" href="#">{{ $category->nombre }}</a>
-            @endforeach
-          </div>
-            
-            @foreach ($categories as $category)
-              <div id="{{ $category->nom_low }}-items" class="subcategories flex-column flex-wrap">
-                  @foreach ($subcategories as $subcategory)
-                    @if ($subcategory->category_id == $category->id)
-                      <a class="dropdown-item subcategory" href="{{ route('home.index', ['category'=> $subcategory->nom_low]) }}">{{ $subcategory->nombre }}</a>
-                    @endif
-                  @endforeach
-        
-              </div>
-            @endforeach
-              
-      </div>
-      
-  </div>
+<div class="d-flex justify-content-center mt-4 mb-4">
+  {{ $products->appends(request()->input())->links() }}
 </div>
 
+
 @endsection
 
-@section('extra-js')
-
-<script>
-
-(function(){
-  var categoria = document.getElementsByClassName('category');
-  var catwrap = document.getElementById('categories-wrapper');
-  var catcont = document.getElementById('categories-container');
-  const catpadding = 24;
-  const catheight = 40;
-
-  var catxwidth = categoria.length * catheight;
-
-  var catwidth = catpadding + catxwidth;
-
-  catwrap.style.height =  catwidth + catheight + "px";
-
-}());
-
-</script>
-
-    
-@endsection
 

@@ -26,27 +26,30 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $categories = Category::all();
+        $subcategories = Subcategory::all();
+
+        $paginate = 10;
 
         if (request()->category) {
             $products = Product_type::with('subcategories')->whereHas('subcategories', function($query){
                 $query->where('nom_low', request()->category);
-            })->get();
-            $categories = Category::all();
-            $subcategories = Subcategory::all();
-            $categoryName = $subcategories->where('nom_low', request()->category)->first()->nombre;
+            });
+            $categoryName = optional($subcategories->where('nom_low', request()->category)->first())->nombre;
 
         } else {
-            $products = Product_type::inRandomOrder()->get();
-            $categories = Category::all();
-            $subcategories = Subcategory::all();
+            $products = Product_type::where('destacado', true)->inRandomOrder();
             $categoryName = 'Productos Destacados';
         }
         
         if (request()->sort == 'low_high') {
-            $products = $products->sortBy('precio');
+            $products = $products->orderBy('precio')->paginate($paginate);
         } elseif (request()->sort == 'high_low') {
-            $products = $products->sortByDesc('precio');
+            $products = $products->orderBy('precio' , 'desc')->paginate($paginate);
+        } else {
+            $products = $products->paginate($paginate);
         }
+        
         
 
         return view('home')->with([

@@ -22,6 +22,7 @@ class CreateProductTypesTable extends Migration
             $table->string('capacidad');
             $table->integer('precio');
             $table->string('imagen_url');
+            $table->boolean('destacado')->default(false);
 
             $table->unsignedBigInteger('subcategory_id')->nullable();
             $table->foreign('subcategory_id')->references('id')

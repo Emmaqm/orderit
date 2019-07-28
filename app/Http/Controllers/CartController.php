@@ -55,7 +55,13 @@ class CartController extends Controller
             return redirect()->route('cart.index')->with('success_message', '¡Ya has agregado este producto!');
         }
 
-        Cart::add($product->id, $product->nombre, 1, $product->precio)
+        $cant = $_POST['selectCantidad'];
+
+        if ($cant > 10 || $cant < 1) {
+            return redirect()->route('cart.index')->with('error_message', '¡Cantidad Inválida!');
+        }
+
+        Cart::add($product->id, $product->nombre, $cant, $product->precio)
               ->associate('App\Product_type');
 
         return redirect()->route('cart.index')->with('success_message', '¡El producto ha sido añadido al Pedido!');

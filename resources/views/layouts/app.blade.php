@@ -14,6 +14,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('css/algolia.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -22,17 +24,21 @@
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     {{ config('app.name', 'orderit') }}
                 </a> 
-                
-                <div class="d-flex">
+
+                @include('partials.searchForm')
+
+                <div class="d-flex d-md-none">
                     <div class="cart-link">
                         <a href="{{ route('cart.index')}}">
-                            <i class="fas fa-boxes"></i>
+                            <i class="mr-2 fas fa-boxes"></i>
                             @if (Cart::count() > 0)
                             <span class="cant-count">{{ Cart::count() }}</span>
                             @endif
                         
                         </a>
                     </div>
+
+
                         
                     <button class="navbar-toggler p-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                         <span class="navbar-toggler-icon"></span>
@@ -40,7 +46,7 @@
                 </div>
 
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
 
                         <ul class="navbar-nav ml-auto">
                                 <!-- Authentication Links -->
@@ -162,7 +168,35 @@
                         </a>
                     </li>
                     <li>
-                        @yield('categories')
+                        <div class="dropdown show dropright">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-th-large"></i>
+                                <p>Categorías</p>
+                            </a>
+                          
+                            <div class="dropdown-menu p-0" id="categories-container" aria-labelledby="dropdownMenuLink">
+                          
+                                <div class="d-flex" id="categories-wrapper">
+                                    <div class="categories --back-color-secondary">
+                                      @foreach ($categories as $category)
+                                        <a id="{{ $category->nom_low }}" class="category dropdown-item" href="#">{{ $category->nombre }}</a>
+                                      @endforeach
+                                    </div>
+                                      
+                                      @foreach ($categories as $category)
+                                        <div id="{{ $category->nom_low }}-items" class="subcategories flex-column flex-wrap">
+                                            @foreach ($subcategories as $subcategory)
+                                              @if ($subcategory->category_id == $category->id)
+                                                <a class="dropdown-item subcategory" href="{{ route('home.index', ['category'=> $subcategory->nom_low]) }}">{{ $subcategory->nombre }}</a>
+                                              @endif
+                                            @endforeach
+                                  
+                                        </div>
+                                      @endforeach
+                                        
+                                </div>
+                            </div>
+                        </div>
                         
                         <a href="#">
                             <i class="fas fa-warehouse"></i>
@@ -252,5 +286,30 @@
     </div>
 
     @yield('extra-js')
+
+    <script>
+
+        (function(){
+          var categoria = document.getElementsByClassName('category');
+          var catwrap = document.getElementById('categories-wrapper');
+          var catcont = document.getElementById('categories-container');
+          const catpadding = 24;
+          const catheight = 40;
+        
+          var catxwidth = categoria.length * catheight;
+        
+          var catwidth = catpadding + catxwidth;
+        
+          catwrap.style.height =  catwidth + catheight + "px";
+        
+        }());
+        
+    </script>
+
+    <!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
+    <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
+    <script src="{{ asset('js/algolia.js') }}"></script>
+
 </body>
 </html>
