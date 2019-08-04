@@ -62,9 +62,8 @@ class HomeController extends Controller
 
     public function show($slug)
     {
-        $slug = explode("-", $slug);
 
-        $product = Product_type::where('nombre', $slug[1])->firstOrFail();
+        $product = Product_type::where('nombre', $slug)->firstOrFail();
         $alsoLike = Product_type::where('nombre', '!=' , $slug)->inRandomOrder()->take(6)->get();
 
         $categories = Category::all();
@@ -78,5 +77,17 @@ class HomeController extends Controller
             'subcategories' => $subcategories,
         ]);
 
+    }
+
+    public function search(Request $request)
+    {
+
+        $categories = Category::all();
+        $subcategories = Subcategory::all();
+        
+        return view('search-results')->with([
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+        ]);
     }
 }

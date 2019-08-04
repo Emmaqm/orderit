@@ -16673,7 +16673,6 @@ body .\--border-top {
 .navbar-top .cart-link {
   padding: 0.25rem;
   font-size: 1.3rem;
-  display: none;
 }
 
 .navbar-top .cart-link .cant-count {
@@ -17215,7 +17214,7 @@ body .\--border-top {
   }
 }
 
-.home-title .underline {
+.underline {
   width: 50px;
   float: left;
   height: 2px;

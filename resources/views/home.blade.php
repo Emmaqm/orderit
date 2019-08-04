@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Home')
+@section('title', 'Inicio')
 
 @section('content')
 
@@ -66,7 +66,7 @@
 
     <div class="card m-3 flex-row flex-sm-column d-block">
       <div class="text-center align-items-center d-sm-block card-img-container">
-          <a href="{{ route('home.show', $product->id . "-" . $product->nombre) }}">
+          <a href="{{ route('home.show', $product->nombre) }}">
               <img class="card-img-top" src="{{ asset('img/products/'. $product->imagen_url) }}" alt="{{ $product->descripcion }}">
             </a>
       </div>
@@ -79,7 +79,7 @@
           </div>
           <p class="text--dark-grey card-text">{{ $product->descripcion }}<span> {{ $product->capacidad }}</span></p>
           <div class="text-sm-center">
-            <a href="{{ route('home.show', $product->id . "-" . $product->nombre) }}" class="text-center btn bt-primary">Agregar al pedido</a>
+            <a href="{{ route('home.show', $product->nombre) }}" class="text-center btn bt-primary">Agregar al pedido</a>
           </div>
       </div>
     </div>

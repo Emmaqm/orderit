@@ -16,6 +16,8 @@
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
     <link href="{{ asset('css/algolia.css') }}" rel="stylesheet">
+
+    @yield('extra-css')
 </head>
 <body>
     <div id="app">
@@ -27,7 +29,7 @@
 
                 @include('partials.searchForm')
 
-                <div class="d-flex d-md-none">
+                <div class="d-flex d-md-none cart-menu">
                     <div class="cart-link">
                         <a href="{{ route('cart.index')}}">
                             <i class="mr-2 fas fa-boxes"></i>

@@ -32,11 +32,11 @@
                 }
             }
         }).on('autocomplete:selected', function (event, suggestion, dataset) {
-            window.location.href = window.location.origin + '/home/' + suggestion.id + '-' + suggestion.nombre;
+            window.location.href = window.location.origin + '/home/' +  suggestion.nombre;
             enterPressed = true;
         }).on('keyup', function(event) {
             if (event.keyCode == 13 && !enterPressed) {
-                window.location.href = window.location.origin + '/search-algolia?q=' + document.getElementById('aa-search-input').value;
+                window.location.href = window.location.origin + '/search?query=' + document.getElementById('aa-search-input').value;
             }
         });
 })();

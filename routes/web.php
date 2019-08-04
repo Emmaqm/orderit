@@ -16,3 +16,5 @@ Route::delete('/pedido/{product}', 'CartController@destroy')->name('cart.destroy
 Route::patch('/pedido/{product}', 'CartController@update')->name('cart.update')->middleware('auth');
 
 Route::get('/home/{product}', 'HomeController@show')->name('home.show')->middleware('auth');
+
+Route::get('/search', 'HomeController@search')->name('search')->middleware('auth');

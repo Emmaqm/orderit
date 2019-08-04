@@ -251,7 +251,6 @@ body .\--border-top {
 .navbar-top .cart-link {
   padding: 0.25rem;
   font-size: 1.3rem;
-  display: none;
 }
 
 .navbar-top .cart-link .cant-count {

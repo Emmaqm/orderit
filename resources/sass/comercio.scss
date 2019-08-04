@@ -1,14 +1,16 @@
 @import 'variables';
 
-.home-title{
-    .underline{
-        width: 50px;
-        float: left;
-        height: 2px;
-        background-color: #ef684a;
-        margin-left: 3.1rem;
-    }
 
+.underline{
+    width: 50px;
+    float: left;
+    height: 2px;
+    background-color: #ef684a;
+    margin-left: 3.1rem;
+}
+
+
+.home-title{
     .del-sort{
         position: relative;
         top: 1px;

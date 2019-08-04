@@ -11,7 +11,7 @@
 
                     <div class="card">
 
-                        <a href="{{ route('home.show', $product->id . '-' .$product->nombre) }}">
+                        <a href="{{ route('home.show', $product->nombre) }}">
                             <img class="card-img-top" src="{{ asset('img/products/'. $product->imagen_url) }}" alt="{{ $product->descripcion }}">
                           </a>
                           
@@ -19,7 +19,7 @@
                             <h5 class="card-title">{{ $product->nombre }}</h5>
                             <p class="card-title text--dark-grey">{{ $product->presentPrice() }}<span> c/u</span></p>
                             <div class="text-center">
-                              <a href="{{ route('home.show', $product->id . '-' .$product->nombre) }}" class="text-center --link">Ver más</a>
+                              <a href="{{ route('home.show', $product->nombre) }}" class="text-center --link">Ver más</a>
                             </div>
                           </div>
 

@@ -38,13 +38,13 @@
            
             <div class="d-flex">
                 <div class="cart-product-image">
-                    <a href="{{ route('home.show', $product->model->id . "-" . $product->model->nombre) }}">
+                    <a href="{{ route('home.show', $product->model->nombre) }}">
                         <img src="{{ asset('img/products/'. $product->model->imagen_url) }}" alt="{{ $product->model->nombre}} ">
                     </a>
                 </div>
     
                 <div class="cart-product-name ml-sm-4 ml-3 pt-0 pt-sm-4 mr-sm-4 mr-2">
-                    <a href="{{ route('home.show', $product->model->id . "-" . $product->model->nombre) }}">
+                    <a href="{{ route('home.show', $product->model->nombre) }}">
                         <h5 class="text--darkest-grey">{{ $product->model->nombre }}</h5>
                     </a>
                     

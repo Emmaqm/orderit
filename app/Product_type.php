@@ -9,11 +9,18 @@ class Product_type extends Model
 {
     use Searchable;
 
-    public function searchableAs()
-    {
-        return 'posts_index';
-    }
 
+    public function toSearchableArray()
+    {
+        $array = $this->toArray();
+
+        $subcategory = $this->subcategories->toArray();
+        $extraFields = [
+            'subcategories' => $subcategory['nombre'],
+        ];
+
+        return array_merge($array, $extraFields);
+    }
     
 
     public function subcategories(){
