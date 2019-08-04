@@ -6,6 +6,8 @@
 
 <div class="cart">
 
+    <h4 class="font-weight-bold mt-2 ml-2 mb-4 text--darkest-grey">Mi Pedido</h4>
+
     @if (session()->has('success_message'))
         <div class="alert alert-success" role="alert">
             {{ session()->get('success_message')}}

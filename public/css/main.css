@@ -16709,6 +16709,7 @@ body .\--border-top {
 }
 
 .navbar-top .navbar-collapse {
+  order: 4;
   text-align: right;
 }
 

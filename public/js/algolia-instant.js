@@ -7,17 +7,7 @@
         routing: true
       });
       
-      search.start();
-
-      search.addWidget(
-        instantsearch.widgets.searchBox({
-          container: '#search-box',
-          placeholder: 'Search for products'
-        })
-      );
-
-  
-
+    
       search.addWidget(
         instantsearch.widgets.hits({
           container: '#hits',
@@ -54,6 +44,13 @@
 
 
       search.addWidget(
+        instantsearch.widgets.searchBox({
+          container: '#search-box',
+          placeholder: 'Buscar Productos...'
+        })
+      );
+
+      search.addWidget(
         instantsearch.widgets.pagination({
           container: '#pagination',
           maxPages: 20,
@@ -62,11 +59,52 @@
         })
       );
 
+      search.addWidget(
+        instantsearch.widgets.refinementList({
+          container: '#refinement-list-subcategory',
+          attributeName: 'subcategories',
+          sortBy: ['name:asc']
+        })
+      );
 
       search.addWidget(
         instantsearch.widgets.refinementList({
-          container: '#refinement-list',
-          attributeName: 'categories'
+          container: '#refinement-list-brand',
+          attributeName: 'marca',
+          sortBy: ['name:asc']
         })
       );
+
+      
+      search.addWidget(
+        instantsearch.widgets.refinementList({
+          container: '#refinement-list-capacity',
+          attributeName: 'capacidad',
+          sortBy: ['name:asc']
+        })
+      );
+      
+      search.start();
+
 })();
+
+function closeOpenMenu() {
+  $('#filtros').toggleClass('filtros-open');
+  $('#bg-filtros').fadeToggle();
+}
+
+$(document).ready(function () {
+  $('#filtros-open').click(function () {
+          closeOpenMenu();
+  });
+
+  $('#filtros-close').click(function () {
+          closeOpenMenu();
+  });
+});
+
+$(document).mouseup(function (e) {
+  if ($('#bg-filtros').is(e.target)) {
+          closeOpenMenu();
+  }
+});
