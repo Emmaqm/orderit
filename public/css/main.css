@@ -16499,6 +16499,12 @@ body .bt-secondary-white:hover {
   transition: 0.2s;
 }
 
+body .alert-primary {
+  color: #004085;
+  background-color: #cce5ff;
+  border-color: #b8daff;
+}
+
 body .\--white-container {
   background-color: white;
   padding: 20px;
@@ -17036,6 +17042,10 @@ body .\--border-top {
 ----------------------------------------------------- */
 
 @media (max-width: 767px) {
+  .container-full .container-left {
+    display: none;
+  }
+
   .navbar-top {
     height: unset;
   }
@@ -17178,14 +17188,18 @@ body .\--border-top {
   .modal .modal-dialog .modal-content .subcategories-responsive {
     display: none;
     position: absolute;
-    top: 15px;
+    top: 0;
     left: 0;
     background-color: white;
     width: 100%;
   }
 
   .modal .modal-dialog .modal-content .subcategories-responsive a {
-    padding: 8px 35px;
+    padding: 10px 35px;
+  }
+
+  .modal .modal-dialog .modal-content .subcategories-responsive a:hover {
+    background-color: #f8f9fa;
   }
 }
 

@@ -11,7 +11,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="login-title">
-                                            <h1 class="text-center">OrderIt</h1>
+                                            <h1 class="text-center">Establecer Nueva Contraseña</h1>
                                     </div>
                                     <p class="welcome-message font-weight-light text-center">Complete los campos para establecer una nueva contraseña.</p>
                                     <form method="POST" action="{{ route('password.update') }}">

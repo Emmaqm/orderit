@@ -90,6 +90,7 @@
 
 function closeOpenMenu() {
   $('#filtros').toggleClass('filtros-open');
+  $('#apply-filters').toggleClass('apply-filters-open');
   $('#bg-filtros').fadeToggle();
 }
 
@@ -101,6 +102,10 @@ $(document).ready(function () {
   $('#filtros-close').click(function () {
           closeOpenMenu();
   });
+  
+  $('#apply-filters').click(function () {
+          closeOpenMenu();
+  });
 });
 
 $(document).mouseup(function (e) {
@@ -108,3 +113,5 @@ $(document).mouseup(function (e) {
           closeOpenMenu();
   }
 });
+
+

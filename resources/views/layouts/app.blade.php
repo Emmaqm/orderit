@@ -4,6 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <meta name="theme-color" content="#EF684A">
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -123,6 +127,13 @@
                                         </li>
                                         <li>
                                             <a href="#">Preferencias</a>
+                                        </li>
+                                        <li>
+                                            <a  href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                          document.getElementById('logout-form').submit();">
+                                             {{ __('Cerrar Sesión') }}
+                                            </a>
                                         </li>
                                     </ul>
                                     <a href="#">

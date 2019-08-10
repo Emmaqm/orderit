@@ -6,6 +6,7 @@
     <div class="container-left">
 
     </div>
+
     <div class="container-right">
         <div class="container">
             <div class="row justify-content-center">
@@ -14,9 +15,9 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="login-title">
-                                <h1 class="text-center">OrderIt</h1>
+                                <h1 class="text-center">Iniciar Sesión</h1>
                             </div>
-                            <p class="welcome-message font-weight-light text-center">¡Bienvenido! Ingresa con tus datos para continuar</p>
+                            <p class="welcome-message font-weight-light text-center">Ingresa con tus datos para continuar</p>
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
         
@@ -56,7 +57,7 @@
         
                                 <div class="form-group mb-0">
                                     <div class="text-center">
-                                        <button type="submit" class="bt-primary">
+                                        <button type="submit" class="btn bt-primary">
                                             {{ __('Ingresar') }}
                                         </button>
                                         @if (Route::has('password.request'))

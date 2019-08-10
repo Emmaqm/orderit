@@ -45,8 +45,8 @@
         <div class="ml-3 ml-sm-0">
             <div>
                 <div class="d-flex justify-content-between">
-                    <h4 class="mt-sm-4 mt-4 pt-4 font-weight-bold">Filtros:</h4>
-                    <div class="mt-4 pt-4">
+                    <h4 class="mt-4 pt-sm-4 font-weight-bold">Filtros:</h4>
+                    <div class="mt-4 pt-sm-4">
                         <button id="filtros-close" class="fas fa-times text--darkest-grey"></button>
                     </div>
                 </div>
@@ -71,6 +71,10 @@
                 </div>
             </div>
         </div>
+
+        <button id="apply-filters" class="apply-filters">
+            Aplicar Filtros
+        </button>
     </div>
     
 </div>

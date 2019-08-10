@@ -11,7 +11,7 @@
                     <div class="card">        
                         <div class="card-body">
                             <div class="login-title">
-                                <h1 class="text-center">OrderIt</h1>
+                                <h1 class="text-center">Crear nueva cuenta</h1>
                             </div>
                             <p class="welcome-message font-weight-light text-center">Completa los datos para crear una nueva cuenta</p>
                             <form method="POST" action="{{ route('register') }}">
@@ -91,7 +91,7 @@
                                         @endif
                                 </div>
         
-                                <div class="form-group mb-0">
+                                <div class="form-group mb-0 mt-4 pt-2">
                                     <div class=" text-center">
                                         <button type="submit" class="btn bt-primary">
                                             {{ __('Registrarse') }}

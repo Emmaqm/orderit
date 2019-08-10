@@ -214,6 +214,25 @@
     display: none;
 }
    
+.apply-filters{
+    color: white;
+    background-color: #EF684A;
+    margin: 0;
+    padding: 0;
+    border: unset;
+    padding: 10px 0px;
+    position: fixed;
+    bottom: 0;
+    right: -70%;
+    width: 70%;
+    transition: 0.4s;
+}
+
+   
+.apply-filters-open{
+    right: 0;
+    display: none;
+}
 
 @media (max-width: 575px) {
     .filtros{
@@ -254,6 +273,12 @@
     #filtros-open{
         display: inline-block;
         padding: 4px 18px;
+    }
+
+       
+    .apply-filters-open{
+        right: 0;
+        display: block;
     }
 }
 

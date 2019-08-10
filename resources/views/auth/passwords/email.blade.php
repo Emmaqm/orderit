@@ -12,7 +12,7 @@
         
                         <div class="card-body">
                                 <div class="login-title">
-                                        <h1 class="text-center">OrderIt</h1>
+                                        <h1 class="text-center">Recuperar Contraseña</h1>
                                     </div>
                                     <p class="welcome-message font-weight-light text-center">Para poder restablecer su contraseña ingrese su Correo Electrónico.<br> Recibirá un correo con un enlace al cual deberá acceder para establecer una nueva contraseña.</p>
                             @if (session('status'))
