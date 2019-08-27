@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->string('telefono');
             $table->integer('id_comercio');
+            $table->boolean('estado')->default(0);
         });
     }
 

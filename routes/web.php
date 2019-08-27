@@ -3,6 +3,12 @@
 
 Auth::routes();
 
+Route::get('/register-supplier', 'Auth\RegisterSupplierController@showSupplierRegistrationForm')->name('register.supplier');
+
+Route::post('/register-supplier', 'Auth\RegisterSupplierController@register');
+
+
+
 Route::get('/', 'HomeController@index')->middleware('auth');
 
 Route::get('/home', 'HomeController@index')->name('home.index')->middleware('auth');
@@ -18,3 +24,6 @@ Route::patch('/pedido/{product}', 'CartController@update')->name('cart.update')-
 Route::get('/home/{product}', 'HomeController@show')->name('home.show')->middleware('auth');
 
 Route::get('/search', 'HomeController@search')->name('search')->middleware('auth');
+
+
+

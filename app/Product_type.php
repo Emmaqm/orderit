@@ -19,7 +19,10 @@ class Product_type extends Model
             'subcategories' => $subcategory['nombre'],
         ];
 
-        return array_merge($array, $extraFields);
+        $array = array_merge($array, $extraFields);
+
+
+        return $array;
     }
     
 

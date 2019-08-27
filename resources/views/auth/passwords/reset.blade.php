@@ -3,8 +3,7 @@
 @section('content')
 
 <div class="container-full">
-    <div class="container-left"></div>
-    <div class="container-right">
+    <div class="container-left">
             <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-md-8">
@@ -58,6 +57,9 @@
                         </div>
                     </div>
                 </div>
+    </div>
+    <div class="container-right">
+          
     </div>
 </div>
 

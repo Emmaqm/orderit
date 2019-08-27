@@ -31,16 +31,16 @@ class HomeController extends Controller
 
         $paginate = 10;
 
-        if (request()->category) {
-            $products = Product_type::with('subcategories')->whereHas('subcategories', function($query){
-                $query->where('nom_low', request()->category);
-            });
-            $categoryName = optional($subcategories->where('nom_low', request()->category)->first())->nombre;
+        // if (request()->category) {
+        //     $products = Product_type::with('subcategories')->whereHas('subcategories', function($query){
+        //         $query->where('nom_low', request()->category);
+        //     });
+        //     $categoryName = optional($subcategories->where('nom_low', request()->category)->first())->nombre;
 
-        } else {
+        // } else {
             $products = Product_type::where('destacado', true)->inRandomOrder();
             $categoryName = 'Productos Destacados';
-        }
+        // }
         
         if (request()->sort == 'low_high') {
             $products = $products->orderBy('precio')->paginate($paginate);

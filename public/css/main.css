@@ -16495,8 +16495,12 @@ body .bt-secondary-white {
 
 body .bt-secondary-white:hover {
   background-color: white;
-  color: #EF684A;
+  color: #EF684A !important;
   transition: 0.2s;
+}
+
+body .bt-signup {
+  padding: 5px 30px;
 }
 
 body .alert-primary {
@@ -16579,44 +16583,48 @@ body .\--border-top {
 
 /*-----------Auth (login, register, verify, etc)---------*/
 
+#id-establecimiento {
+  display: none;
+}
+
 .container-full {
   display: flex;
   background-color: white;
 }
 
-.container-full .container-left {
+.container-full .container-right {
   width: 40%;
   background: linear-gradient(45deg, #ef684a 0%, #f3a998 100%);
 }
 
-.container-full .container-right {
+.container-full .container-left {
   flex-grow: 1;
 }
 
-.container-full .container-right .card {
+.container-full .container-left .card {
   height: 100vh;
   border: none;
 }
 
-.container-full .container-right .card .card-body {
+.container-full .container-left .card .card-body {
   flex: none;
   margin-top: auto;
   margin-bottom: auto;
 }
 
-.container-full .container-right .card .card-body .login-title {
+.container-full .container-left .card .card-body .login-title {
   margin-bottom: 20px;
 }
 
-.container-full .container-right .card .card-body .welcome-message {
+.container-full .container-left .card .card-body .welcome-message {
   margin-bottom: 30px;
 }
 
-.container-full .container-right .card .card-body .forgot {
+.container-full .container-left .card .card-body .forgot {
   padding: 0;
 }
 
-.container-full .container-right .card .card-body .forgot .forgot-pass {
+.container-full .container-left .card .card-body .forgot .forgot-pass {
   padding-bottom: 0;
   padding-top: 0;
   float: right;
@@ -17042,8 +17050,49 @@ body .\--border-top {
 ----------------------------------------------------- */
 
 @media (max-width: 767px) {
+  .container-full {
+    display: block;
+  }
+
   .container-full .container-left {
-    display: none;
+    position: relative;
+  }
+
+  .container-full .container-left .container {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .container-full .container-left .card {
+    height: auto;
+  }
+
+  .container-full .container-right {
+    overflow: hidden;
+    background: unset;
+    position: relative;
+    width: 100%;
+    padding-top: 5rem;
+    padding-bottom: 4rem;
+  }
+
+  .container-full .container-right .text-center {
+    z-index: 1;
+  }
+
+  .container-full .container-right .bg-skew {
+    background: linear-gradient(45deg, #ef684a 0%, #f3a998 100%);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: skewY(4deg);
+            transform: skewY(4deg);
+    -webkit-transform-origin: bottom left;
+            transform-origin: bottom left;
   }
 
   .navbar-top {
@@ -17195,7 +17244,7 @@ body .\--border-top {
   }
 
   .modal .modal-dialog .modal-content .subcategories-responsive a {
-    padding: 10px 35px;
+    padding: 8px 35px;
   }
 
   .modal .modal-dialog .modal-content .subcategories-responsive a:hover {

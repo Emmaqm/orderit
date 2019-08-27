@@ -81,10 +81,14 @@ body{
     border: 2px solid white;  
 
     &:hover{
-      background-color: white;
-      color: $primary-color-1; 
+      background-color: white; 
+      color: $primary-color-1 !important; 
       transition: 0.2s; 
     }
+  }
+
+  .bt-signup{
+    padding: 5px 30px;
   }
 
   .alert-primary{
@@ -169,16 +173,21 @@ body{
 
 
 /*-----------Auth (login, register, verify, etc)---------*/
+
+#id-establecimiento{
+  display: none;
+}
+
 .container-full{
   display: flex;
   background-color: white;
 
-  .container-left{
+  .container-right{
     width: 40%;
     background: linear-gradient(45deg, rgba(239,104,74,1) 0%, rgba(243,169,152,1) 100%);
   }
 
-  .container-right{
+  .container-left{
     flex-grow: 1;
 
     .card{
@@ -637,8 +646,46 @@ body{
 
 
   .container-full{
+    display: block;
+
+
     .container-left{
-      display: none;
+      position: relative;
+
+      .container{
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+      }
+      
+      .card{
+        height: auto;
+      }
+    }
+
+    .container-right{
+      overflow: hidden;
+      background: unset;
+      position: relative;
+      width: 100%;
+      padding-top: 5rem;
+      padding-bottom: 4rem;
+
+      .text-center{
+        z-index: 1;
+      }
+
+      .bg-skew{
+        background: linear-gradient(45deg, rgba(239,104,74,1) 0%, rgba(243,169,152,1) 100%);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: skewY(4deg);
+        transform-origin: bottom left;
+      }
     }
   }
 
@@ -799,7 +846,7 @@ body{
         width: 100%;
 
         a{
-          padding: 1px 35px;
+          padding: 8px 35px;
 
           &:hover{
             background-color: #f8f9fa;

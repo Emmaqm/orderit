@@ -27,4 +27,5 @@
         @yield('content')
     </main>
 </body>
+    @yield('extra-js')
 </html>

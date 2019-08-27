@@ -9,19 +9,39 @@
 
 @section('content')
 
-<div class="text-center text-sm-left">
-    <h4 class="text-center text-md-left ml-lg-5 ml-0 mt-2 mb-2 text--dark-grey"><strong class="text--darkest-grey mr-1"><span class="text-capitalize">Resultados</span> para: </strong> {{ app('request')->input('query') }}</h4>
-                                                                                             
-    <div class="underline d-none d-lg-block"></div>
-
-    <button class="btn bt-primary mt-2" id="filtros-open"><span class="fas fa-filter mr-2"></span>Filtrar</button>
-</div>
 
 
-<div class="d-flex mt-3 mt-sm-4">
+
+<div class="d-flex mt-0 mt-sm-2">
 
 
-    <div class="col-lg-9 col-md-8 p-0">
+    <div class="col-lg-9 col-md-8 p-0 hits-container">
+        <div class="text-center text-sm-left d-sm-flex justify-content-between pl-4 pr-4 mb-2">
+            @if (app('request')->input('query'))
+                <div>
+                    <h4 class="text-center text-md-left ml-lg-5 ml-0 mt-2 mb-2 text--dark-grey"><strong class="text--darkest-grey mr-1"><span class="text-capitalize">Resultados</span> para: </strong> {{ app('request')->input('query') }}</h4>
+                    <div class="underline d-none d-lg-block"></div>
+                    <div class="d-none" id="breadcrumb">        
+                        <!-- RefinementList widget will appear here -->
+                    </div> 
+                </div>
+            
+            @else
+                <div id="breadcrumb" class="ml-sm-4 pl-sm-4 mt-2 mr-2">        
+                    <!-- RefinementList widget will appear here -->
+                </div>    
+            @endif
+        
+            <div class="d-flex justify-content-around mt-4 mt-sm-0 mb-2 mb-sm-0">
+                <button class="btn bt-primary" id="filtros-open"><span class="fas fa-filter mr-2"></span>Filtrar</button>
+        
+                <div class="mr-lg-4 pr-lg-4 ml-2">
+                    <div id="ordenar">
+                        <!-- SortBy widget will appear here -->
+                    </div>
+                </div>
+            </div>                                                                
+        </div>
         <div class="products" id="hits">
             <!-- Hits widget will appear here -->
         </div>
@@ -35,9 +55,8 @@
 
     <div id="filtros" class="col-lg-3 col-md-4 filtros p-4 p-sm-3">
 
-        <div class="d-none d-sm-block">
-            <h4 class="mt-4 mt-sm-0 mb-4 font-weight-bold">Buscar:</h4>
-            <div id="search-box">
+        <div class="d-none">
+            <div class="d-none" id="search-box">
                 <!-- SearchBox widget will appear here -->
             </div>
         </div>
@@ -53,6 +72,7 @@
 
                 <h5 class="text--darkest-grey mt-4 mb-3">Categorías</h5>
                 <div id="refinement-list-subcategory">        
+                        <h5 class="text--darkest-grey mt-4 mb-3">Categorías</h5>
                         <!-- RefinementList widget will appear here -->
                 </div>
             </div>
@@ -73,7 +93,7 @@
         </div>
 
         <button id="apply-filters" class="apply-filters">
-            Aplicar Filtros
+            Ver Productos
         </button>
     </div>
     

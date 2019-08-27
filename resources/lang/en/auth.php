@@ -14,6 +14,7 @@ return [
     */
 
     'failed' => 'El correo y/o la contraseña son incorrectos',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'throttle' => 'Demasiados intentos de inicio. Por favor pruebe en :seconds seconds.',
+    'noactive' => 'Su cuenta no esta activa. Comuníquese con el dueño o encargado del establecimiento para activar su cuenta.',
 
 ];

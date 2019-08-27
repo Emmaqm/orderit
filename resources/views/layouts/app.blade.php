@@ -200,7 +200,7 @@
                                         <div id="{{ $category->nom_low }}-items" class="subcategories flex-column flex-wrap">
                                             @foreach ($subcategories as $subcategory)
                                               @if ($subcategory->category_id == $category->id)
-                                                <a class="dropdown-item subcategory" href="{{ route('home.index', ['category'=> $subcategory->nom_low]) }}">{{ $subcategory->nombre }}</a>
+                                                <a class="dropdown-item subcategory" href="{{ route('search', ['menu[subcategories]'=> $subcategory->nombre]) }}">{{ $subcategory->nombre }}</a>
                                               @endif
                                             @endforeach
                                   
@@ -281,7 +281,7 @@
                             <div id="{{ $category->nom_low }}R-itemsR" class="subcategories-responsive">
                                 @foreach ($subcategories as $subcategory)
                                     @if ($subcategory->category_id == $category->id)
-                                        <a class="dropdown-item subcategory-responsive" href="{{ route('home.index', ['category'=> $subcategory->nom_low]) }}">{{ $subcategory->nombre }}</a>
+                                        <a class="dropdown-item subcategory-responsive" href="{{ route('search', ['menu[subcategories]'=> $subcategory->nombre]) }}">{{ $subcategory->nombre }}</a>
                                     @endif
                                 @endforeach
                             </div>

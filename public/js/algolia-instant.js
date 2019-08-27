@@ -12,7 +12,13 @@
         instantsearch.widgets.hits({
           container: '#hits',
           templates: {
-            empty: 'No se encontraron Productos.',
+            empty: function(empty){
+              return `
+                <div class="alert alert-warning" role="alert">
+                  No se encontraron Productos
+                </div>
+              `;
+          },
             item: function(item){
                 return `
                         <div class="card flex-row flex-sm-column d-block">
@@ -36,13 +42,13 @@
                     </div>
                 `;
             }
-            
-            //'<em>Hit {{objectID}}</em>: {{{_highlightResult.nombre.value}}}'
+
           }
         })
       );
 
 
+      
       search.addWidget(
         instantsearch.widgets.searchBox({
           container: '#search-box',
@@ -60,7 +66,7 @@
       );
 
       search.addWidget(
-        instantsearch.widgets.refinementList({
+        instantsearch.widgets.menu({
           container: '#refinement-list-subcategory',
           attributeName: 'subcategories',
           sortBy: ['name:asc']
@@ -83,8 +89,39 @@
           sortBy: ['name:asc']
         })
       );
+
+      search.addWidget(
+        instantsearch.widgets.sortBySelector({
+          container: '#ordenar',
+          autoHideContainer: true,
+          indices: [
+            {name: 'product_types', label: 'Mas Relevante'},
+            {name: 'product_types_asc', label: 'Menor Precio'},
+            {name: 'product_types_desc', label: 'Mayor Precio'}
+          ]
+        })
+      );
+
+      search.addWidget(
+        instantsearch.widgets.breadcrumb({
+          container: '#breadcrumb',
+          attributes: ['subcategories'],
+          templates: { home: 'Inicio' },
+        })
+      );
       
       search.start();
+
+      search.helper.on('result', function(res) {
+        const filtros = document.getElementById('filtros');
+        const filtros_open = document.getElementById('filtros-open');
+        if (res && res.hits && res.hits.length > 0) {
+          filtros.style.display = 'block';
+        } else {
+          filtros.style.display = 'none';
+          filtros_open.style.display = 'none';
+        }
+      });
 
 })();
 
@@ -113,5 +150,6 @@ $(document).mouseup(function (e) {
           closeOpenMenu();
   }
 });
+
 
 

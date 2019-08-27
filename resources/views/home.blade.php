@@ -10,7 +10,7 @@
       <div class="underline d-none d-lg-block"></div>
   </div>
 
-  <div class="order-sm-3 filters d-flex justify-content-around mr-lg-5 mt-3 mt-lg-0 mb-3 text--darkest-grey p-1">
+  {{-- <div class="order-sm-3 filters d-flex justify-content-around mr-lg-5 mt-3 mt-lg-0 mb-3 text--darkest-grey p-1">
 
       <div class="dropdown">
           <button class="dropdown-toggle btn bt-dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -21,7 +21,7 @@
             <a class="dropdown-item" href="{{ route('home.index', ['category'=> request()->category, 'sort'=> 'high_low']) }}">Mayor Precio</a>
           </div>
       </div>
-  </div>
+  </div> --}}
 
 
   <div class="labels-filter-order text-center flex-lg-grow-1 order-sm-2 p-lg-1 text-lg-right">

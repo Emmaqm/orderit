@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
-use App\Merchant;
-use App\Rules\isMerchant;
+use App\Employee;
+use App\Rules\isEmployee;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
-class RegisterController extends Controller
+class RegisterSupplierController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -56,11 +56,11 @@ class RegisterController extends Controller
             'apellido' => ['required', 'string', 'max:45'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'telefono' => ['required', 'string', 'max:45'],
-            'id_comercio' => ['required', new isMerchant],
+            'id_comercio' => ['required', new isEmployee],
         ]);
     }
 
-    /**
+    /** 
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
@@ -69,12 +69,12 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-        $merchant = new Merchant;
+        $employee = new Employee;
 
-        $merchant->email = $data['email'];
-        $merchant->establishment_id = $data['id_comercio'];
+        $employee->email = $data['email'];
+        $employee->establishment_id = $data['id_comercio'];
 
-        $merchant->save();
+        $employee->save();
 
 
         return User::create([
@@ -88,4 +88,10 @@ class RegisterController extends Controller
         
 
     }
+
+    public function showSupplierRegistrationForm()
+    {
+        return view('auth.register-supplier');
+    }
+    
 }

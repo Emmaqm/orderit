@@ -144,6 +144,8 @@ return [
     |
     */
 
-    'attributes' => array('password' => 'contraseña')
-
+    'attributes' => [
+        'password' => 'contraseña',
+        'id_comercio' => 'código de comercio',
+    ]
 ];
