@@ -162,7 +162,7 @@ body .\--border-top {
 /*-----------Auth (login, register, verify, etc)---------*/
 
 #id-establecimiento {
-  display: none;
+  display: block;
 }
 
 .container-full {

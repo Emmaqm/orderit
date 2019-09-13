@@ -4,10 +4,10 @@
 
 @section('content')
 
-<div class="home-title p-lg-1 mb-1 mb-lg-3 d-lg-flex justify-content-between">
-  <div class="order-sm-1">
-      <h4 class="ml-lg-5 ml-0 mt-1 mb-2 text--darkest-grey text-center text-lg-left text-lg-center">{{ $categoryName }}</h4>
-      <div class="underline d-none d-lg-block"></div>
+<div class="home-title p-lg-1 mb-3 ml-4">
+  <div class="order-sm-1 mt-1 p-1 ml-4 mb-3">
+      <h2 class=" mt-1 mb-2 text--darkest-grey">{{ $categoryName }}</h2>
+      <div class="underline m-0"></div>
   </div>
 
   {{-- <div class="order-sm-3 filters d-flex justify-content-around mr-lg-5 mt-3 mt-lg-0 mb-3 text--darkest-grey p-1">
@@ -24,7 +24,7 @@
   </div> --}}
 
 
-  <div class="labels-filter-order text-center flex-lg-grow-1 order-sm-2 p-lg-1 text-lg-right">
+  {{-- <div class="labels-filter-order text-center flex-lg-grow-1 order-sm-2 p-lg-1 text-lg-right">
     @if (request()->sort)
     <div class="btn text--dark-grey mr-2 filter-label">
         <p class="m-0">
@@ -39,7 +39,7 @@
       </div>
     @endif
   </div>
-</div>
+</div> --}}
 
 
 <div class="products container-fluid p-0 justify-content-center d-flex">

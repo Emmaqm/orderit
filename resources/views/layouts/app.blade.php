@@ -302,6 +302,8 @@
 
     <script>
 
+        /*---- Alto dinámico del menu de categorías ------*/
+
         (function(){
           var categoria = document.getElementsByClassName('category');
           var catwrap = document.getElementById('categories-wrapper');

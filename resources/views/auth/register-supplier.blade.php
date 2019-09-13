@@ -84,25 +84,25 @@
                                     <label>Elija una de las opciones</label>
 
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="proveedor-nuevo" id="es-nuevo-establecimiento-si" value="si" checked>
+                                        <input class="form-check-input" type="radio" name="proveedorNuevo" id="es-nuevo-establecimiento-no" value="no"checked>
+                                        <label class="form-check-label" for="es-nuevo-establecimiento-no">
+                                          Mi Establecimiento ya esta registrado.
+                                        </label>
+                                    </div>        
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="proveedorNuevo" id="es-nuevo-establecimiento-si" value="si" >
                                         <label class="form-check-label" for="es-nuevo-establecimiento-si">
                                           Deseo registrar mi Establecimiento.
                                         </label>
                                     </div>
-
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="proveedor-nuevo" id="es-nuevo-establecimiento-no" value="si">
-                                        <label class="form-check-label" for="es-nuevo-establecimiento-no">
-                                          Mi Establecimiento ya esta registrado.
-                                        </label>
-                                    </div>                                            
+                                       
                                 </div>
 
 
 
                                 <div class="form-group" id="id-establecimiento">
                                     <label for="id_comercio">{{ __('Código de proveedor') }}</label>
-                                    <input id="id_comercio" type="text" class="id_comercio form-control{{ $errors->has('id_comercio') ? ' is-invalid' : '' }}" name="id_comercio" required>
+                                    <input id="id_comercio" type="text" class="id_comercio form-control{{ $errors->has('id_comercio') ? ' is-invalid' : '' }}" name="id_comercio">
             
                                         @if ($errors->has('id_comercio'))
                                             <span class="invalid-feedback" role="alert">

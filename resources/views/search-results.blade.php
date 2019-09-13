@@ -18,8 +18,8 @@
     <div class="col-lg-9 col-md-8 p-0 hits-container">
         <div class="text-center text-sm-left d-sm-flex justify-content-between pl-4 pr-4 mb-2">
             @if (app('request')->input('query'))
-                <div>
-                    <h4 class="text-center text-md-left ml-lg-5 ml-0 mt-2 mb-2 text--dark-grey"><strong class="text--darkest-grey mr-1"><span class="text-capitalize">Resultados</span> para: </strong> {{ app('request')->input('query') }}</h4>
+                <div class="mb-4">
+                    <h2 class="text-center text-md-left ml-lg-5 ml-0 mt-2 mb-2">Resultados para: <span class="text-capitalize font-weight-light">{{ app('request')->input('query') }}</span> </h2>
                     <div class="underline d-none d-lg-block"></div>
                     <div class="d-none" id="breadcrumb">        
                         <!-- RefinementList widget will appear here -->

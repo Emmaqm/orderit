@@ -6,7 +6,11 @@
 
 <div class="cart">
 
-    <h4 class="font-weight-bold mt-2 ml-2 mb-4 text--darkest-grey">Mi Pedido</h4>
+    <div class="mb-4 mt-2 p-1 ml-2">
+        <h2 class="ml-0 mt-1 mb-2 text--darkest-grey">Mi Pedido</h2>
+        <div class="underline m-0 l-1"></div>
+    </div>
+
 
     @if (session()->has('success_message'))
         <div class="alert alert-success" role="alert">
