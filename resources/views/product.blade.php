@@ -10,14 +10,14 @@
         <div class="row">
           <div class="col-10 col-sm-6 col-xl-6 col-lg-6 product-left">
             <div class="text-center product-image-wrapper --white-container">
-                <img class="img-fluid" src="{{ asset('img/products/'. $product->imagen_url) }}" alt="{{ $product->descripcion }}">
+                <img class="img-fluid" src="{{ asset('storage/'. $product->imagen_url) }}" alt="{{ $product->descripcion_breve }}">
             </div>
           </div>
           <div class="mt-3 col-10 col-sm-6 col-xl-6 col-lg-6 pl-4 product-right">
             <h2 class="text--darkest-grey">{{ $product->nombre }}</h2>
             <p class="text--dark-grey">Vendido por: <a class="--link" href="#">{{ $product->marca }}</a></p>
             <p class="product-price">{{ $product->presentPrice() }}</p>
-            <p class="text--darkest-grey product-desc">{{ $product->descripcion }}</p>
+            <p class="text--darkest-grey product-desc">{!! $product->descripcion !!}</p>
            
             <form action="{{ route('cart.store', $product) }}" method="POST">
                 @csrf

@@ -7,7 +7,12 @@
           <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <div class="card">        
+                    <div class="card pb-4">  
+                        <div class="logo-wrapper p-4 text-center">
+                            <a href="{{ url('/home') }}">
+                                <img class="m-3" src="{{ asset('img/logo-whitebg.svg') }}" alt="Logo Orderit">
+                            </a>
+                        </div>        
                         <div class="card-body">
                             <div class="login-title">
                                 <h1 class="text-center">Crear nueva cuenta</h1>
@@ -128,7 +133,7 @@
             </div>
         </div>
     </div>
-    <div class="container-right">
+    <div class="container-right p-0">
       
     </div>
 </div>

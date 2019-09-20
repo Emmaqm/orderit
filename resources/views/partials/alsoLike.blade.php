@@ -12,12 +12,12 @@
                     <div class="card">
 
                         <a href="{{ route('home.show', $product->nombre) }}">
-                            <img class="card-img-top" src="{{ asset('img/products/'. $product->imagen_url) }}" alt="{{ $product->descripcion }}">
+                            <img class="card-img-top" src="{{ asset('storage/'. $product->imagen_url) }}" alt="{{ $product->descripcion_breve }}">
                           </a>
                           
                           <div class="card-body --border-top text-center">
                             <h5 class="card-title">{{ $product->nombre }}</h5>
-                            <p class="card-title text--dark-grey">{{ $product->presentPrice() }}<span> c/u</span></p>
+                            <p class="card-title text--dark-grey">{{ $product->presentPrice() }}</p>
                             <div class="text-center">
                               <a href="{{ route('home.show', $product->nombre) }}" class="text-center --link">Ver más</a>
                             </div>

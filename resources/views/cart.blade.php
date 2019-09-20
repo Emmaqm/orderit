@@ -45,11 +45,11 @@
             <div class="d-flex">
                 <div class="cart-product-image">
                     <a href="{{ route('home.show', $product->model->nombre) }}">
-                        <img src="{{ asset('img/products/'. $product->model->imagen_url) }}" alt="{{ $product->model->nombre}} ">
+                        <img src="{{ asset('storage/'. $product->model->imagen_url) }}" alt="{{ $product->model->nombre}} ">
                     </a>
                 </div>
     
-                <div class="cart-product-name ml-sm-4 ml-3 pt-0 pt-sm-4 mr-sm-4 mr-2">
+                <div class="cart-product-name ml-sm-4 ml-3 pt-2 pt-sm-4 mr-sm-4 mr-2">
                     <a href="{{ route('home.show', $product->model->nombre) }}">
                         <h5 class="text--darkest-grey">{{ $product->model->nombre }}</h5>
                     </a>
@@ -75,7 +75,7 @@
                     </select>
                 </div>
         
-                <div class="d-flex align-items-center pl-sm-4 pl-2 ml-1">
+                <div class="d-flex align-items-center pl-sm-4">
                     <h5 class="product-price m-0 mb-2">{{ presentPrice($product->subtotal) }}</h5>
                 </div>
 
@@ -91,7 +91,7 @@
 
             <div class="prices text-right ml-2 mr-2 mt-2 mb-4 pt-sm-4 pt-3 mb-sm-4 pt-sm-4 pb-3 pr-4">
                 <div class="column-label">
-                    <p class="mr-4 text--dark-grey">Descuentos</p>
+                    {{-- <p class="mr-4 text--dark-grey">Descuentos</p> --}}
                     <h4 class="mr-4 text--darkest-grey">Total</h4>
                 </div>
 
@@ -104,7 +104,13 @@
             <div class="d-flex justify-content-between">
                 <a class="ml-3 mt-1 btn-link" href="{{ route('home.index') }}"><i class="fas fa-arrow-left mr-2"></i><span class="d-sm-inline d-none">Seguir Comprando</span></a>
 
-                <a class="mr-2 bt-primary btn text-right" href="#">Finalizar mi Pedido</a>
+                {{-- <a class="mr-2 bt-primary btn text-right" href="#">Finalizar mi Pedido</a> --}}
+                <form action="/procesar-pago" method="POST">
+                    <script
+                     src="https://www.mercadopago.com.uy/integrations/v1/web-payment-checkout.js"
+                     data-preference-id="{{ $preference->id }}" data-header-color="#EF684A" data-elements-color="#f3431c" data-button-label="Finalizar Pedido">
+                    </script>
+                </form>
             </div>
         </div>
 

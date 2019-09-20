@@ -16,6 +16,14 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ef684a">
+    <meta name="msapplication-TileColor" content="#fffbf9">
+    <meta name="theme-color" content="#fffbf9">
+
     <!-- Styles -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
@@ -25,9 +33,11 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-top sticky-top">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{ url('/home') }}">
-                    {{ config('app.name', 'orderit') }}
-                </a> 
+                <div class="logo-wrapper mr-sm-4">
+                    <a class="navbar-brand m-0" href="{{ url('/home') }}">
+                        <img src="img/logo-whitebg.svg" alt="Logo orderit">
+                    </a> 
+                </div>
 
                 <div class="d-flex d-md-none cart-menu">
                         

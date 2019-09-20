@@ -16430,6 +16430,12 @@ html {
   font-size: 0.9rem;
 }
 
+input[type=text],
+input[type=email],
+input[type=password] {
+  height: 40px !important;
+}
+
 body {
   overflow-x: hidden;
   background-color: #fafafa;
@@ -16437,7 +16443,56 @@ body {
   font-display: swap;
 }
 
-body .bt-primary {
+body .mt-3r {
+  margin-top: 3rem;
+}
+
+body .mt-6r {
+  margin-top: 6rem;
+}
+
+body .pt-3r {
+  padding-top: 3rem;
+}
+
+body .pt-6r {
+  padding-top: 6rem;
+}
+
+body .w-60 {
+  width: 60%;
+}
+
+body .bg-white {
+  background-color: #ffffff;
+}
+
+body .logo-wrapper img {
+  width: 110px;
+}
+
+body .avatar-img {
+  border: 3px solid #ffe0d9;
+  border-radius: 50%;
+  display: block;
+  height: 80px;
+  width: 80px;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body .mercadopago-button {
+  border: 1px solid transparent;
+  font-family: "Lato", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 6px 35px !important;
+  margin-right: 1rem;
+}
+
+body .bt-primary,
+body .mercadopago-button {
   color: white;
   background-color: #EF684A;
   border-color: #EF684A;
@@ -16446,7 +16501,8 @@ body .bt-primary {
   border-style: solid;
 }
 
-body .bt-primary:hover {
+body .bt-primary:hover,
+body .mercadopago-button:hover {
   border-color: #EF684A;
   background-color: white;
   color: #EF684A;
@@ -16602,7 +16658,7 @@ body .\--border-top {
 }
 
 .container-full .container-left .card {
-  height: 100vh;
+  min-height: 100vh;
   border: none;
 }
 
@@ -16610,6 +16666,11 @@ body .\--border-top {
   flex: none;
   margin-top: auto;
   margin-bottom: auto;
+}
+
+.container-full .container-left .card .card-body .form-login {
+  max-width: 450px;
+  margin: 0 auto;
 }
 
 .container-full .container-left .card .card-body .login-title {
@@ -17050,6 +17111,22 @@ body .\--border-top {
 ----------------------------------------------------- */
 
 @media (max-width: 767px) {
+  .logo-wrapper {
+    position: initial !important;
+  }
+
+  .w-60 {
+    width: 100% !important;
+  }
+
+  .mt-6r {
+    margin-top: 0 !important;
+  }
+
+  .pt-3r {
+    padding-top: 0 !important;
+  }
+
   .container-full {
     display: block;
   }
@@ -17059,12 +17136,12 @@ body .\--border-top {
   }
 
   .container-full .container-left .container {
-    padding-top: 5rem;
+    padding-top: 1.5rem;
     padding-bottom: 5rem;
   }
 
   .container-full .container-left .card {
-    height: auto;
+    min-height: auto;
   }
 
   .container-full .container-right {
@@ -17097,6 +17174,10 @@ body .\--border-top {
 
   .navbar-top {
     height: unset;
+  }
+
+  .navbar-top .logo-wrapper img {
+    width: 92px !important;
   }
 
   .navbar-top.sticky-top {

@@ -4,7 +4,12 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="logo-wrapper p-4 text-center">
+                <a href="{{ url('/home') }}">
+                    <img class="m-3" src="{{ asset('img/logo-whitebg.svg') }}" alt="Logo Orderit">
+                </a>
+            </div>      
+            <div class="card mt-3r">
                 <div class="card-header">{{ __('Verify Your Email Address') }}</div>
 
                 <div class="card-body">

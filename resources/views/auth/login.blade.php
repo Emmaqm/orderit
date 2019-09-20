@@ -8,13 +8,18 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-8">
-                        <div class="card">
-                            <div class="card-body">
+                        <div class="card pt-3r">
+                            <div class="logo-wrapper position-absolute w-100 pt-4 pb-0 text-center mb-4 mb-md-0" style="top:0">
+                                <a href="{{ url('/home') }}">
+                                    <img class="m-3" src="{{ asset('img/logo-whitebg.svg') }}" alt="Logo Orderit">
+                                </a>
+                            </div>  
+                            <div class="card-body mt-4 pt-4 pt-md-0 mt-md-auto">
                                 <div class="login-title">
                                     <h1 class="text-center">Iniciar Sesión</h1>
                                 </div>
                                 <p class="welcome-message font-weight-light text-center">Ingresa con tus datos para continuar</p>
-                                <form method="POST" action="{{ route('login') }}">
+                                <form method="POST" action="{{ route('login') }}" class="form-login">
                                     @csrf
             
                                     <div class="form-group">
@@ -52,7 +57,7 @@
                                     </div>
             
                                     <div class="form-group mb-0">
-                                        <div class="text-center">
+                                        <div class="text-center mt-4">
                                             <button type="submit" class="btn bt-primary">
                                                 {{ __('Ingresar') }}
                                             </button>

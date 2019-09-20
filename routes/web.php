@@ -35,4 +35,6 @@ Route::post('/establishment-info', 'EstablishmentController@store')->name('estab
 Route::get('/activation-pending', 'EstablishmentController@pending')->name('establishment.pending')->middleware('auth');
 
 
-
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

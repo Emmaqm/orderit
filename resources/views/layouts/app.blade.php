@@ -15,6 +15,16 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/addtohome.js') }}" defer></script>
+    
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ef684a">
+    <meta name="msapplication-TileColor" content="#fffbf9">
+    <meta name="theme-color" content="#fffbf9">
 
     <!-- Styles -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
@@ -25,11 +35,14 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-top sticky-top">
+        <nav class="navbar navbar-expand-md navbar-light navbar-top sticky-top p-md-0">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{ url('/home') }}">
-                    {{ config('app.name', 'orderit') }}
-                </a> 
+                <div class="logo-wrapper mr-sm-4">
+                    <a class="navbar-brand m-0" href="{{ url('/home') }}">
+                        <img src="{{ asset('img/logo-whitebg.svg') }}" alt="Logo orderit">
+                    </a> 
+                </div>
+
 
                 @include('partials.searchForm')
 
@@ -57,7 +70,7 @@
                         <ul class="navbar-nav ml-auto">
                                 <!-- Authentication Links -->
                                 <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle ml-sm-4" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ Auth::user()->nombre . " " . Auth::user()->apellido  }} <span class="caret"></span>
                                     </a>
         
@@ -75,7 +88,10 @@
                                         </div>
                                         
                                         <div class="dropdown-container-right --back-color-secondary --text-white text-center --padding-20">
-                                            <a href="#"><i class="fas fa-user-circle"></i></a>
+                                            <a href="#">
+                                                <span class="avatar-img" style="background-image: url('{{ asset('storage/'. Auth::user()->avatar) }}')"></span>
+
+                                            </a>
                                             <p>{{ Auth::user()->nombre . " " . Auth::user()->apellido  }} <span class="caret"></span></p>
                                             <button class="bt-secondary-white">Mi cuenta</button>
                                         </div>

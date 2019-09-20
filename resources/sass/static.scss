@@ -11,13 +11,69 @@ html{
   font-size: $font-size-base;
 }
 
+
+input[type=text], input[type=email], input[type=password]{
+  height: 40px !important;
+}
+
 body{
   overflow-x: hidden;
   background-color: #fafafa;
   font-family: $font-family-sans-serif;
   font-display: swap;
 
-  .bt-primary{
+  .mt-3r{
+    margin-top: 3rem;
+  }
+
+  .mt-6r{
+    margin-top: 6rem;
+  }
+
+  .pt-3r{
+    padding-top: 3rem;
+  }
+
+  .pt-6r{
+    padding-top: 6rem;
+  }
+
+  .w-60{
+    width:60%;
+  }
+
+  .bg-white{
+    background-color: #ffffff;
+  }
+
+  .logo-wrapper{
+
+    img{
+      width: 110px;
+    }
+  }
+
+  .avatar-img{
+    border: 3px solid #ffe0d9;
+    border-radius: 50%;
+    display: block;
+    height: 80px;
+    width: 80px;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .mercadopago-button{
+    border: 1px solid transparent;
+    font-family: "Lato", sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 6px 35px !important;
+    margin-right: 1rem;
+  }
+  
+  .bt-primary, .mercadopago-button{
     color: white;
     background-color: $primary-color-1;
     border-color: $primary-color-1;
@@ -191,13 +247,18 @@ body{
     flex-grow: 1;
 
     .card{
-      height: 100vh;
+      min-height: 100vh;
       border: none;
 
       .card-body{
         flex: none;
         margin-top: auto;
         margin-bottom: auto;
+        
+        .form-login{
+          max-width: 450px;
+          margin: 0 auto;
+        }
 
         .login-title{
           margin-bottom: 20px;
@@ -644,6 +705,21 @@ body{
 
 @media (max-width: 767px) {
 
+  .logo-wrapper{
+    position: initial !important;
+  }
+
+  .w-60{
+    width:100% !important; 
+  }
+
+  .mt-6r{
+    margin-top: 0 !important;
+  }
+
+  .pt-3r{
+    padding-top: 0 !important;
+  }
 
   .container-full{
     display: block;
@@ -653,12 +729,13 @@ body{
       position: relative;
 
       .container{
-        padding-top: 5rem;
+        padding-top: 1.5rem;
         padding-bottom: 5rem;
+
       }
       
       .card{
-        height: auto;
+        min-height: auto;
       }
     }
 
@@ -691,6 +768,14 @@ body{
 
   .navbar-top{
     height: unset;
+
+    .logo-wrapper{
+    
+      img{
+        width: 92px !important;
+      }
+    }
+  
 
     &.sticky-top{
       position: initial !important;

@@ -24,7 +24,7 @@
                         <div class="card flex-row flex-sm-column d-block">
                         <div class="text-center align-items-center d-sm-block card-img-container">
                             <a href="${window.location.origin + '/home/' + item.nombre}">
-                                <img class="card-img-top" src="${window.location.origin}/img/products/${item.imagen_url}" alt="{{ $product->descripcion }}">
+                                <img class="card-img-top" src="${window.location.origin}/storage/${item.imagen_url}" alt="{{ $product->descripcion_breve }}">
                             </a>
                         </div>
                 

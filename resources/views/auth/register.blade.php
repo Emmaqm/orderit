@@ -7,7 +7,12 @@
         <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-md-8">
-                            <div class="card">        
+                            <div class="card pb-4">
+                                <div class="logo-wrapper p-4 text-center">
+                                    <a href="{{ url('/home') }}">
+                                        <img class="m-3" src="{{ asset('img/logo-whitebg.svg') }}" alt="Logo Orderit">
+                                    </a>
+                                </div>        
                                 <div class="card-body">
                                     <div class="login-title">
                                         <h1 class="text-center">Crear nueva cuenta</h1>
@@ -84,16 +89,16 @@
                                             <label>Elija una de las opciones</label>
 
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="comercio-nuevo" id="es-nuevo-establecimiento-si" value="si" checked>
-                                                <label class="form-check-label" for="es-nuevo-establecimiento-si">
-                                                  Deseo registrar mi Comercio.
+                                                <input class="form-check-input" type="radio" name="comercioNuevo" id="es-nuevo-establecimiento-no" value="no" checked>
+                                                <label class="form-check-label" for="es-nuevo-establecimiento-no">
+                                                  Mi Comercio ya esta registrado.
                                                 </label>
                                             </div>
 
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="comercio-nuevo" id="es-nuevo-establecimiento-no" value="si">
-                                                <label class="form-check-label" for="es-nuevo-establecimiento-no">
-                                                  Mi Comercio ya esta registrado.
+                                                <input class="form-check-input" type="radio" name="comercioNuevo" id="es-nuevo-establecimiento-si" value="si">
+                                                <label class="form-check-label" for="es-nuevo-establecimiento-si">
+                                                    Deseo registrar mi Comercio.
                                                 </label>
                                             </div>                                            
                                         </div>
@@ -102,7 +107,7 @@
 
                                         <div class="form-group" id="id-establecimiento">
                                             <label for="id_comercio">{{ __('Código de comercio') }}</label>
-                                            <input id="id_comercio" type="text" class="id_comercio form-control{{ $errors->has('id_comercio') ? ' is-invalid' : '' }}" name="id_comercio" required>
+                                            <input id="id_comercio" type="text" class="id_comercio form-control{{ $errors->has('id_comercio') ? ' is-invalid' : '' }}" name="id_comercio">
                     
                                                 @if ($errors->has('id_comercio'))
                                                     <span class="invalid-feedback" role="alert">
@@ -128,7 +133,7 @@
                     </div>
                 </div>
     </div>
-    <div class="container-right">
+    <div class="container-right p-0">
         
     </div>
 </div>

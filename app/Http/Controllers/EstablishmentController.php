@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Employee;
+use App\Merchant;
 use App\Establishment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -56,20 +58,41 @@ class EstablishmentController extends Controller
     public function store(Request $request)
     {
 
+        $user = Auth::user();
+        $ismerchant = Merchant::where('email', $user->email)->first();
+
+
         $validatedData = $request->validate([
             'nombre' => 'required|max:100|string',
             'direccion' => 'required|max:250|string',
             'telefono' => 'required|max:45|string',
         ]);
 
-       $data = Establishment::create([
-            'nombre' => $request['nombre'],
-            'direccion' => $request['direccion'],
-            'telefono' => $request['telefono'],
-            'tipo' => 'P',
-        ]);
 
-        $user = Auth::user();
+        if($ismerchant == null){
+            $data = Establishment::create([
+                'nombre' => $request['nombre'],
+                'direccion' => $request['direccion'],
+                'telefono' => $request['telefono'],
+                'tipo' => 'P',
+            ]);
+
+            Employee::where('email', $user->email)
+            ->update(['establishment_id' => $data->id]);
+
+        }else{
+
+            $data = Establishment::create([
+                'nombre' => $request['nombre'],
+                'direccion' => $request['direccion'],
+                'telefono' => $request['telefono'],
+                'tipo' => 'C',
+            ]);
+
+            
+            Merchant::where('email', $user->email)
+            ->update(['establishment_id' => $data->id]);
+        }
         
         User::where('id', $user->id)
         ->update(['id_comercio' => $data->id]);

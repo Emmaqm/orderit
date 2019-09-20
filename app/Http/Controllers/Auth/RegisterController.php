@@ -30,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/establishment-info';
 
     /**
      * Create a new controller instance.
@@ -50,14 +50,22 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+        $v = Validator::make($data, [
             'email' => ['required', 'string', 'email', 'max:100', 'unique:users'],
             'nombre' => ['required', 'string', 'max:45'],
             'apellido' => ['required', 'string', 'max:45'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'telefono' => ['required', 'string', 'max:45'],
-            'id_comercio' => ['required', new isMerchant],
+            'id_comercio' => ['required_unless:comercioNuevo,si'] 
         ]);
+
+
+        $v->sometimes('id_comercio', new isMerchant , function ($input) {
+            return $input->id_comercio !== null;
+        });
+
+
+        return $v;
     }
 
     /**
@@ -73,6 +81,10 @@ class RegisterController extends Controller
 
         $merchant->email = $data['email'];
         $merchant->establishment_id = $data['id_comercio'];
+
+        if (empty($data['id_comercio'])) {
+            $merchant->tipo = 'J';
+        }
 
         $merchant->save();
 

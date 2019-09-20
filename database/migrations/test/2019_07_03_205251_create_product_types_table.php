@@ -17,6 +17,7 @@ class CreateProductTypesTable extends Migration
             $table->bigIncrements('id');
             $table->string('nombre');
             $table->string('marca');
+            $table->string('descripcion_breve');
             $table->text('descripcion');
             $table->string('estado');
             $table->string('capacidad');

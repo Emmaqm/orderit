@@ -4,8 +4,8 @@
 
 @section('content')
 
-<div class="home-title p-lg-1 mb-3 ml-4">
-  <div class="order-sm-1 mt-1 p-1 ml-4 mb-3">
+<div class="home-title p-lg-1 mb-3">
+  <div class="order-sm-1 mt-1 p-1 ml-4 mb-3 ml-4">
       <h2 class=" mt-1 mb-2 text--darkest-grey">{{ $categoryName }}</h2>
       <div class="underline m-0"></div>
   </div>
@@ -57,7 +57,7 @@
     <div class="card m-3 flex-row flex-sm-column d-block">
       <div class="text-center align-items-center d-sm-block card-img-container">
           <a href="{{ route('home.show', $product->nombre) }}">
-              <img class="card-img-top" src="{{ asset('img/products/'. $product->imagen_url) }}" alt="{{ $product->descripcion }}">
+              <img class="card-img-top" src="{{ asset('storage/'. $product->imagen_url) }}" alt="{{ $product->descripcion_breve }}">
             </a>
       </div>
 
@@ -67,7 +67,7 @@
           <div class="product-nombre mb-1">
               <h5>{{ $product->nombre }}</h5>
           </div>
-          <p class="text--dark-grey card-text">{{ $product->descripcion }}<span> {{ $product->capacidad }}</span></p>
+          <p class="text--dark-grey card-text">{{ $product->descripcion_breve }}<span> - {{ $product->capacidad }}</span></p>
           <div class="text-sm-center">
             <a href="{{ route('home.show', $product->nombre) }}" class="text-center btn bt-primary">Agregar al pedido</a>
           </div>

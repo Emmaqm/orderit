@@ -1,0 +1,20 @@
+{
+    "name": "orderit",
+    "short_name": "orderit",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "http://site.test/",
+    "theme_color": "#fffbf9",
+    "background_color": "#fffbf9",
+    "display": "standalone"
+}

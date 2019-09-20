@@ -1,13 +1,20 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
 use App\Category;
 use App\Subcategory;
+use MercadoPago\SDK;
 use App\Product_type;
+use MercadoPago\Item;
+use MercadoPago\Preference;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Validator;
+
+
+SDK::setAccessToken('TEST-4146618151334276-092015-3f842989ff0b99f073f93d97af859103-472786077');
 
 class CartController extends Controller
 {
@@ -22,11 +29,33 @@ class CartController extends Controller
         $categories = Category::all();
         $subcategories = Subcategory::all();
         
+        $productsArray = Cart::content();
+
+        $preference = new Preference();
+        
+        $i_arr = array();
+
+        foreach ($productsArray as $x => $product) {
+
+            $item = new Item();
+            $item->id = $product->id;
+            $item->title = $product->name;
+            $item->quantity = $product->qty;
+            $item->currency_id = "UYU";
+            $item->unit_price = $product->price / 100;
+            $i_arr[] = $item;
+
+        }
+
+        $preference->items = $i_arr;
+
+        $preference->save();
+        
         return view('cart')->with([
             'categories' => $categories,
             'subcategories' => $subcategories,
+            'preference' => $preference,
         ]);
-
     }
 
     /**
@@ -61,10 +90,12 @@ class CartController extends Controller
             return redirect()->route('cart.index')->with('error_message', '¡Cantidad Inválida!');
         }
 
-        Cart::add($product->id, $product->nombre, $cant, $product->precio)
-              ->associate('App\Product_type');
+        Cart::add($product->id, $product->nombre, $cant, $product->precio)->associate('App\Product_type');
 
-        return redirect()->route('cart.index')->with('success_message', '¡El producto ha sido añadido al Pedido!');
+
+        return redirect()->route('cart.index')->with([
+            'success_message' => '¡El producto ha sido añadido al Pedido!',  
+        ]);
     }
 
     /**
