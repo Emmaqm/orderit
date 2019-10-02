@@ -69,7 +69,7 @@
 
                 <div class="d-flex align-items-center">
                     <select class="form-control cantidad" name="selectCantidad" data-id="{{ $product->rowId }}">
-                        @for ($i = 1; $i < 11; $i++)
+                        @for ($i = 10; $i < 101; $i++)
                                 <option {{ $product->qty == $i ? 'selected' : ''}}>{{$i}}</option>
                         @endfor
                     </select>
@@ -96,7 +96,7 @@
                 </div>
 
                 <div class="column-prices">
-                    <p>$9.00</p>
+                    {{-- <p>$9.00</p> --}}
                     <h4>{{ presentPrice(Cart::total()) }}</h4> 
                 </div>
             </div>
@@ -104,13 +104,7 @@
             <div class="d-flex justify-content-between">
                 <a class="ml-3 mt-1 btn-link" href="{{ route('home.index') }}"><i class="fas fa-arrow-left mr-2"></i><span class="d-sm-inline d-none">Seguir Comprando</span></a>
 
-                {{-- <a class="mr-2 bt-primary btn text-right" href="#">Finalizar mi Pedido</a> --}}
-                <form action="/procesar-pago" method="POST">
-                    <script
-                     src="https://www.mercadopago.com.uy/integrations/v1/web-payment-checkout.js"
-                     data-preference-id="{{ $preference->id }}" data-header-color="#EF684A" data-elements-color="#f3431c" data-button-label="Finalizar Pedido">
-                    </script>
-                </form>
+                <a class="mr-2 bt-primary btn text-right" href="{{ route('cart.orderConfirm') }}">Finalizar mi Pedido</a> 
             </div>
         </div>
 

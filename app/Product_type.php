@@ -21,13 +21,16 @@ class Product_type extends Model
 
         $array = array_merge($array, $extraFields);
 
-
         return $array;
     }
     
 
     public function subcategories(){
         return $this->belongsTo('App\Subcategory', 'subcategory_id');
+    }
+
+    public function establishments(){
+        return $this->belongsTo('App\Establishment', 'establishment_id');
     }
 
     public function presentPrice(){

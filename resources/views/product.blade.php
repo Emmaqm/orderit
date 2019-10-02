@@ -24,7 +24,7 @@
                 <div class="form-group row product-form">
                     <label for="cantidad-producto" class="text--dark-grey col-form-label cant-label">Cantidad:</label>
                     <select class="form-control cantidad ml-4 mb-4" name="selectCantidad">
-                        @for ($i = 1; $i < 11; $i++)
+                        @for ($i = 10; $i < 101; $i++)
                             <option>{{$i}}</option>
                         @endfor
                     </select>

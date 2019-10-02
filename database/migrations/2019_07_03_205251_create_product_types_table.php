@@ -19,7 +19,7 @@ class CreateProductTypesTable extends Migration
             $table->string('marca');
             $table->string('descripcion_breve');
             $table->text('descripcion');
-            $table->string('estado');
+            $table->boolean('estado')->default(true);
             $table->string('capacidad');
             $table->integer('precio');
             $table->string('imagen_url');
@@ -28,6 +28,10 @@ class CreateProductTypesTable extends Migration
             $table->unsignedBigInteger('subcategory_id')->nullable();
             $table->foreign('subcategory_id')->references('id')
                   ->on('subcategories')->onDelete('cascade');
+
+            $table->unsignedBigInteger('establishment_id')->nullable();
+            $table->foreign('establishment_id')->references('id')
+                  ->on('establishments')->onDelete('cascade');
 
             $table->timestamps();
 
