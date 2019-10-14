@@ -205,7 +205,7 @@ class CartController extends Controller
             for ($i=0; $i < count($orderEstablishments) ; $i++) { 
                 Tracking::create([
                     'lugar' => 'Establecimiento del Proveedor',
-                    'estado' => 'A Procesar',
+                    'estado' => 'Sin procesar',
                     'id_pedido' => $order->id,
                     'id_establecimiento' => $orderEstablishments[$i]->establishment_id,
                 ]);

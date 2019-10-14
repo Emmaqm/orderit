@@ -33,6 +33,8 @@
     <link href="{{ asset('css/algolia.css') }}" rel="stylesheet"> --}}
 
     <script type="text/javascript" src="https://cdn.datatables.net/w/bs4/dt-1.10.18/datatables.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/w/bs4/dt-1.10.18/datatables.min.css"/>
  
 
     @yield('extra-css')
@@ -42,7 +44,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-top sticky-top p-md-0">
             <div class="container-fluid">
                 <div class="logo-wrapper mr-sm-4">
-                    <a class="navbar-brand m-0" href="{{ url('/home') }}">
+                    <a class="navbar-brand m-0" href="{{ url('/dashboard') }}">
                         <img src="{{ asset('img/logo-whitebg.svg') }}" alt="Logo orderit">
                     </a> 
                 </div>
@@ -124,9 +126,6 @@
                                             <a href="#">Resumen</a>
                                         </li>
                                         <li>
-                                            <a href="#">Mis Pedidos</a>
-                                        </li>
-                                        <li>
                                             <a href="#">Preferencias</a>
                                         </li>
                                         <li>
@@ -179,9 +178,6 @@
                         <ul class="collapse list-unstyled" id="pageSubmenu">
                             <li>
                                 <a href="#">Resumen</a>
-                            </li>
-                            <li>
-                                <a href="#">Mis Pedidos</a>
                             </li>
                             <li>
                                 <a href="#">Preferencias</a>

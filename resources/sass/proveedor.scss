@@ -1,0 +1,38 @@
+@import 'variables';
+
+.circle-order-state{
+    display: block;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+
+    &.success{
+        background-color: var(--green);
+    }
+
+    &.primary{
+        background-color: $primary-color-1;
+    }
+
+    &.secondary{
+        background-color: $primary-color-2;
+    }
+
+    &.terciary{
+        background-color: $primary-color-3;
+    }
+
+    &.mini{
+        height: 18px;
+        width: 18px;
+    }
+}
+
+
+.card-proveedor {
+    max-width: 1000px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}

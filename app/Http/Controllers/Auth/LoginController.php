@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Employee;
+use App\Merchant;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -38,6 +41,24 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+
+    protected function authenticated(Request $request, $user)
+    {
+        $user = Auth::user();
+        
+        if (Employee::where('email', $user->email)->exists()) {
+
+            return redirect('/dashboard');
+    
+        }else if(Merchant::where('email', $user->email)->exists()){
+    
+            return redirect('/home');
+            
+        }
+    }
+    
+
 
     // protected function credentials(Request $request) {
     //     return array_merge($request->only($this->username(), 'password'), ['estado' => 1]);

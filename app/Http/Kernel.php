@@ -51,6 +51,8 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'checkRoleMerchant' => \App\Http\Middleware\checkRoleMerchant::class,
+        'checkRoleEmployee' => \App\Http\Middleware\checkRoleEmployee::class,
         'pending' => \App\Http\Middleware\checkIdComercio::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,

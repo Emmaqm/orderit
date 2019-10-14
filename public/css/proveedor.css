@@ -1,0 +1,36 @@
+.circle-order-state {
+  display: block;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.circle-order-state.success {
+  background-color: var(--green);
+}
+
+.circle-order-state.primary {
+  background-color: #EF684A;
+}
+
+.circle-order-state.secondary {
+  background-color: #EB8169;
+}
+
+.circle-order-state.terciary {
+  background-color: #F3A998;
+}
+
+.circle-order-state.mini {
+  height: 18px;
+  width: 18px;
+}
+
+.card-proveedor {
+  max-width: 1000px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
