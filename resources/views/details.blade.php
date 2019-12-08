@@ -1,4 +1,4 @@
-@extends('layouts.appP')
+@extends('layouts.app')
 
 @section('title', 'Pedido ' . $order->id)
 
@@ -34,12 +34,8 @@
                 </div>            
     
 
-                <div class="p-3 pb-0">
-                    <p>Pedido por: </p> <h5>{{ $establishment->nombre }}</h5>
-                </div>
-
                 <div class="p-3 pb-0 ml-0 ml-sm-3">
-                    <p>Usuario: </p> <h5>{{ $merchant->nombre . " " . $merchant->apellido }}</h5>
+                    <p>Pedido por: </p> <h5>{{ $merchant->nombre . " " . $merchant->apellido }}</h5>
                 </div>
 
             </div>
@@ -104,7 +100,7 @@
             </div>
 
             <div class="d-flex justify-content-between mt-4">
-                <a class="ml-3 mt-1 btn-link" href="{{ route('order.index') }}"><i class="fas fa-arrow-left mr-2"></i><span class="d-sm-inline d-none">Volver</span></a>
+                <a class="ml-3 mt-1 btn-link" href="{{ route('order.indexM') }}"><i class="fas fa-arrow-left mr-2"></i><span class="d-sm-inline d-none">Volver</span></a>
                 
                 @if (isset($estado) and $estado == "Procesando")
                      <form action="{{ route('order.changeStateReadyToShip', ['orderId' => $order->id, 'supplierId' =>  Auth::user()->id_comercio]) }}" method="POST">

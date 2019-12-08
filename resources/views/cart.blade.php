@@ -20,11 +20,10 @@
     @endif
 
     @if (session()->has('error_message'))
-    <div class="alert alert-danger" role="alert">
-        {{ session()->get('error_message')}}
-    </div>
-
-     @endif
+        <div class="alert alert-danger" role="alert">
+            {{ session()->get('error_message')}}
+        </div>
+    @endif
 
 
     @if (Cart::count() > 0)

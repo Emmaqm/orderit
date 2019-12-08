@@ -84,7 +84,6 @@
 
                                             </a>
                                             <p>{{ Auth::user()->nombre . " " . Auth::user()->apellido  }} <span class="caret"></span></p>
-                                            <button class="bt-secondary-white">Mi cuenta</button>
                                         </div>
         
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

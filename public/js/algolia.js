@@ -13,15 +13,15 @@
                 //'suggestion' templating function used to render a single suggestion
                 suggestion: function (suggestion) {
                     const markup = `
-                        <div class="algolia-result">
-                            <span>
+                        <div class="algolia-result m-0 p-0">
+                            <span class=" m-0 p-0">
                                 <img src="${window.location.origin}/storage/${suggestion.imagen_url}" alt="" class="algolia-thumb">
                                 ${suggestion._highlightResult.nombre.value}
                             </span>
-                            <span>$${(suggestion.precio / 100).toFixed(2)}</span>
+                            <span class=" m-0 p-0">$${(suggestion.precio / 100).toFixed(2)}</span>
                         </div>
-                        <div class="algolia-details">
-                            <span>${suggestion._highlightResult.descripcion.value}</span>
+                        <div class="algolia-details m-0 p-0">
+                            <span class="m-0 p-0">${suggestion._highlightResult.descripcion.value}</span>
                         </div>
                     `;
 

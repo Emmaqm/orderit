@@ -106,6 +106,6 @@
 
 @section('extra-js')
     <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script> --}}
     <script src="{{ asset('js/algolia-instant.js') }}"></script>
 @endsection

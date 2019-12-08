@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="cart mx-auto mt-4" style="max-width:650px">
+<div class="cart  mt-4" style="max-width:650px">
 
     <div class="mb-4 mt-2 p-1 ml-2">
         <h2 class="ml-0 mt-1 mb-2 text--darkest-grey">Confirmación del Pedido</h2>

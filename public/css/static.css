@@ -53,8 +53,8 @@ body .avatar-img {
   border: 3px solid #ffe0d9;
   border-radius: 50%;
   display: block;
-  height: 80px;
-  width: 80px;
+  height: 60px;
+  width: 60px;
   margin: 0 auto;
   background-repeat: no-repeat;
   background-size: cover;
@@ -215,6 +215,37 @@ body .\--border-top {
 
 body .\--border-bottom {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body .sublink.active {
+  color: #EF684A !important;
+  border: none;
+  padding: 8px !important;
+  padding-left: 35px !important;
+}
+
+body #pageSubmenu .active {
+  padding: 8px !important;
+  padding-left: 35px !important;
+  border: none;
+}
+
+body .sidebar .active {
+  color: #EF684A;
+  background: white;
+  border-left: 4px solid #EF684A;
+}
+
+body .sidebar .active i {
+  color: #EF684A;
+}
+
+body .sidebar .active p {
+  color: #EF684A;
+}
+
+body .sidebar .active::after {
+  color: #EF684A;
 }
 
 /*----------------End General Classes-------------------*/
@@ -573,9 +604,7 @@ body .\--border-bottom {
   margin: 0;
 }
 
-.wrapper .sidebar ul li.active > a,
 .wrapper .sidebar ul li a[aria-expanded=true],
-.mr-auto .sidebar ul li.active > a,
 .mr-auto .sidebar ul li a[aria-expanded=true] {
   color: #EF684A;
   background: white;

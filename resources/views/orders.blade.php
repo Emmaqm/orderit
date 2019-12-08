@@ -1,25 +1,29 @@
-@extends('layouts.appP')
+@extends('layouts.app')
 
-@section('title', 'Gestionar Pedidos')        
+@section('title', 'Mis pedidos')
 
+@section('content')
+    
 @section('content')
     
 <div class="card card-proveedor w-100">
     <div class="mb-2 mt-2 p-1 ml-2">
-        <h2 class="ml-0 mt-1 mb-2 text--darkest-grey">Todos los Pedidos</h2>
+        <h2 class="ml-0 mt-1 mb-2 text--darkest-grey">Mis Pedidos</h2>
         <div class="underline m-0 l-1"></div>
     </div>
-    <div class="m-2"></div>
+    
+    <div class="m-2">    
+    </div>
 
     <div class="d-flex justify-content-center pt-0 pb-4">
 
         <div class="mr-2" style="cursor:pointer">
-            <h5 class="text--darkest-grey px-3 btn1">A procesar</h5>
+            <h5 class="text--darkest-grey px-3 btn1">No entregados</h5>
             <div style="height: 3px" class="underline under1 m-0 w-100"></div>
         </div>
 
         <div class="ml-2" style="cursor:pointer">
-            <h5 class="text--darkest-grey px-3 btn2">Procesados</h5>
+            <h5 class="text--darkest-grey px-3 btn2">Entregados</h5>
             <div style="height: 3px" class="underline under2 m-0 w-100"></div>
         </div>
 
@@ -30,16 +34,25 @@
             <table id="pedidos2-table" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
-                            <th></th>
                             <th>Código</th>
-                            <th>Estado</th>
-                            <th>Lugar</th>
-                            <th>Descuentos</th>
+                            <th>Fecha</th>
                             <th>Total</th>
-                            <th>Acción</th>
+                            <th>Detalles</th>
+                            <th>Seguimiento</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($orders as $order)
+                            <tr>
+                                <td>{{ $order->id }}</td>
+                                <td>{{ $order->created_at }}</td>
+                                <td>{{ presentPrice($order->subtotal) }}</td>
+                                <td class="text-center" style="vertical-align:middle;"> <a class="btn bt-primary bt-detalles" style="" href="{{ route('order.details', $order->id) }}">Ver detalles</a> </td>
+                                <td class="text-center" style="vertical-align:middle;"> <a href="{{ route('order.trackingDetails', $order->id) }}">¿Donde está mi pedido?</a> </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                    {{-- <tbody>
                         @foreach ($orders as $order)
                             @foreach ($trackings as $tracking)
                                 @if ($tracking->id_pedido == $order->id and ($tracking->estado == 'Sin procesar' or $tracking->estado == 'Procesando'))
@@ -83,7 +96,7 @@
                             @endforeach
                         @endforeach
                 
-                    </tbody>
+                    </tbody> --}}
             </table>
         </div>
     
@@ -92,16 +105,14 @@
             <table id="pedidos-table" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
-                            <th></th>
                             <th>Código</th>
-                            <th>Estado</th>
-                            <th>Lugar</th>
-                            <th>Descuentos</th>
+                            <th>Fecha</th>
                             <th>Total</th>
-                            <th>Acción</th>
+                            <th>Detalles</th>
+                            <th>Seguimiento</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    {{-- <tbody>
                         @foreach ($orders as $order)
 
                             @foreach ($trackings as $tracking)
@@ -147,7 +158,7 @@
                 
                         @endforeach
                 
-                    </tbody>
+                    </tbody> --}}
             </table>
         </div>
     </div>
@@ -242,6 +253,12 @@ div.dataTables_scrollHead table.table-bordered{
     display: none;
 }
 
+.table .bt-detalles:hover{
+    background-color: transparent;
+}
+
 </style>
+
+@endsection
 
 @endsection

@@ -14,7 +14,7 @@
     <title>{{ config('app.name', 'orderIt') }} - @yield('title')</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/addtohome.js') }}" defer></script>
     
     <!-- Icons -->
@@ -30,6 +30,10 @@
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
     <link href="{{ asset('css/algolia.css') }}" rel="stylesheet">
+
+    <script type="text/javascript" src="https://cdn.datatables.net/w/bs4/dt-1.10.18/datatables.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/w/bs4/dt-1.10.18/datatables.min.css"/>
 
     @yield('extra-css')
 </head>
@@ -93,7 +97,6 @@
 
                                             </a>
                                             <p>{{ Auth::user()->nombre . " " . Auth::user()->apellido  }} <span class="caret"></span></p>
-                                            <button class="bt-secondary-white">Mi cuenta</button>
                                         </div>
         
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -136,13 +139,16 @@
                                     </a>
                                     <ul class="collapse list-unstyled" id="pageSubmenu">
                                         <li>
-                                            <a href="#">Resumen</a>
+                                            <a href="{{ route('summary.index') }}" class="sublink {{ active(['summary']) }}">Resumen</a>
                                         </li>
                                         <li>
-                                            <a href="#">Mis Pedidos</a>
+                                            <a href="{{ route('order.indexM') }}" class="sublink {{ active(['orders']) }}">Mis Pedidos</a>
                                         </li>
                                         <li>
-                                            <a href="#">Preferencias</a>
+                                            <a href="{{ route('user.edit') }}" class="sublink {{ active(['personal-info']) }}">Datos personales</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Datos del comercio</a>
                                         </li>
                                         <li>
                                             <a  href="{{ route('logout') }}"
@@ -235,20 +241,24 @@
                             <i class="fas fa-clock"></i>
                             <p>Reciente</p>
                         </a>
-                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle {{ active(['summary', 'personal-info']) }}">
                             <i class="fas fa-user"></i>
                             <p>Mi cuenta</p>
                         </a>
                         <ul class="collapse list-unstyled" id="pageSubmenu">
                             <li>
-                                <a href="#">Resumen</a>
+                                <a href="{{ route('summary.index') }}" class="sublink {{ active(['summary']) }}">Resumen</a>
                             </li>
                             <li>
-                                <a href="#">Mis Pedidos</a>
+                                <a href="{{ route('order.indexM') }}" class="sublink {{ active(['orders']) }}">Mis Pedidos</a>
                             </li>
                             <li>
-                                <a href="#">Preferencias</a>
+                                <a href="{{ route('user.edit') }}" class="sublink {{ active(['personal-info']) }}">Datos personales</a>
                             </li>
+                            <li>
+                                <a href="#">Datos del comercio</a>
+                            </li>
+                            <li>
                         </ul>
                         <a href="#">
                             <i class="fas fa-life-ring"></i>

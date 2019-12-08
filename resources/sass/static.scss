@@ -57,8 +57,8 @@ body{
     border: 3px solid #ffe0d9;
     border-radius: 50%;
     display: block;
-    height: 80px;
-    width: 80px;
+    height: 60px;
+    width: 60px;
     margin: 0 auto;
     background-repeat: no-repeat;
     background-size: cover;
@@ -227,6 +227,42 @@ body{
 
   .--border-bottom{
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .sublink.active{
+    color: $primary-color-1 !important;
+    border: none;
+    padding: 8px !important;
+    padding-left: 35px !important;
+  }
+
+  #pageSubmenu{
+
+    .active{
+      padding: 8px !important;
+      padding-left: 35px !important;
+      border: none;
+    }
+  }
+
+
+  .sidebar .active{
+    color: $primary-color-1;
+    background: white;
+    border-left: 4px solid $primary-color-1;
+    // padding-left: 6px !important;
+
+    i{
+      color: $primary-color-1;
+    }
+
+    p{
+      color: $primary-color-1;
+    }
+
+    &::after{
+      color: $primary-color-1;
+    }
   }
 }
 /*----------------End General Classes-------------------*/
@@ -582,13 +618,12 @@ body{
             }
         } 
 
-        &.active>a, a[aria-expanded="true"] {
+        a[aria-expanded="true"]{
           color: $primary-color-1;
           background: white;
           border-left: 4px solid $primary-color-1;
           padding-left: 6px !important;
         }
-
       }
     }  
   }
