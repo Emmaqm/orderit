@@ -23,6 +23,8 @@ class SummaryController extends Controller
         $subcategories = Subcategory::all();
         $supplier_id = Auth::user()->id_comercio; 
         
+        //solicitudes de autorización
+
         $usersids = DB::table('users')->select('email')->where('estado', 0)->get();
 
         $usersids = array_column(json_decode($usersids), 'email');
@@ -33,12 +35,20 @@ class SummaryController extends Controller
 
         $users =  DB::table('users')->whereIn('email', $usersids)->where('id_comercio', $supplier_id)->get();
 
+      
+        //resumen de pedidos
+
+        $usersOrders = User::select('id')->where('id_comercio', $supplier_id)->get();
+
+        $orders = DB::table('orders')->where('pago_exitoso', 1)->whereIn('user_id', $usersOrders)->take(5)->get();
+
         
         return view('summary')->with([
             'categories' => $categories,
             'subcategories' => $subcategories,
             'user' => auth()->user(), 
-            'users' => $users
+            'users' => $users,
+            'orders' => $orders
         ]);
     }
 }

@@ -112,10 +112,46 @@
         <div class="p-lg-4 px-2 py-4 col-12">
             <div class="card p-2 p-sm-4 text-sm-left text-center">
                 <p class="text--dark-grey pt-sm-3 pl-sm-3 pl-0 pt-2"><i class="fas fa-truck-loading fa-lg mr-3 --link"></i>Pedidos en curso</p>
+
+                <div class="d-flex py-4 px-1 px-md-3 justify-content-center justify-content-sm-start flex-wrap justify-content-center" style="border-radius: 5px;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Fecha</th>
+                                <th>Detalles</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($orders as $order)
+                                <tr>
+                                    <td>{{ $order->id }}</td>
+                                    <td>{{ $order->created_at }}</td>
+                                    <td class="text-center" style="vertical-align:middle;"> <a  href="{{ route('order.details', $order->id) }}">Ver detalles</a> </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+
+
+                </div>
+                
+                <div class="px-1 px-md-3 py-1 mb-2">
+                    <a href="{{ route('order.indexM') }}" class="btn bt-primary">Ver todos los pedidos</a>
+                </div>
+
             </div>
         </div>
 
     </div>
+
+    <style>
+        td,th{
+            padding: 12px 20px;
+            border-bottom: 1px solid #dee2e6;
+        }
+    
+    </style>
 </div>
 
 @endsection

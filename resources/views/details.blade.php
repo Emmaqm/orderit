@@ -100,17 +100,8 @@
             </div>
 
             <div class="d-flex justify-content-between mt-4">
-                <a class="ml-3 mt-1 btn-link" href="{{ route('order.indexM') }}"><i class="fas fa-arrow-left mr-2"></i><span class="d-sm-inline d-none">Volver</span></a>
-                
-                @if (isset($estado) and $estado == "Procesando")
-                     <form action="{{ route('order.changeStateReadyToShip', ['orderId' => $order->id, 'supplierId' =>  Auth::user()->id_comercio]) }}" method="POST">
-                        @method('PATCH')
-                        @csrf
-                        <button type="submit" class="mr-2 bt-primary btn text-right"><i class="fas fa-check mr-2"></i>Marcar como listo para retirar</button> 
-                   </form>   
-                @endif
-
-                
+                <a class="ml-3 mt-1 btn-link" href="{{ route('order.indexM') }}"><i class="fas fa-arrow-left mr-2"></i><span class="d-sm-inline d-none">Todos los pedidos</span></a>
+                <a class="bt bt-primary btn" href="{{ route('order.trackingDetails', $order->id) }}">¿Donde está mi pedido?</a>                 
             </div>
         </div>
         

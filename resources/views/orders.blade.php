@@ -52,51 +52,7 @@
                             </tr>
                         @endforeach
                     </tbody>
-                    {{-- <tbody>
-                        @foreach ($orders as $order)
-                            @foreach ($trackings as $tracking)
-                                @if ($tracking->id_pedido == $order->id and ($tracking->estado == 'Sin procesar' or $tracking->estado == 'Procesando'))
-                
-                                    <tr>
-                                        <td class="text-center">
-                                        @if ($tracking->estado == 'Sin procesar')
-                                            <div>
-                                                <span class="circle-order-state terciary mini"> 
-                                                <span class="d-none">1</span>
-                                            </div>
-
-                                        @elseif($tracking->estado == 'Procesando')
-
-                                            <div>
-                                                <span class="circle-order-state secondary mini"> 
-                                                <span class="d-none">2</span>
-                                            </div>
-                                        @endif
-                                        </td>
-                                        <td>{{ $order->id }}</td>
-                                        <td>
-                                            @foreach ($trackings as $tracking)
-                                                @if ($tracking->id_pedido == $order->id)
-                                                    {{ $tracking->estado }}
-                                                @endif
-                                            @endforeach
-                                        </td>
-                                        <td>
-                                            @foreach ($trackings as $tracking)
-                                                @if ($tracking->id_pedido == $order->id)
-                                                    {{ $tracking->lugar }}
-                                                @endif
-                                            @endforeach
-                                        </td>
-                                        <td>{{ presentPrice($order->descuentos) }}</td>
-                                        <td>{{ presentPrice($order->subtotal) }}</td>
-                                        <td><a href="{{ route('order.show', $order->id) }}">Procesar</a></td>
-                                    </tr>
-                                @endif
-                            @endforeach
-                        @endforeach
-                
-                    </tbody> --}}
+                  
             </table>
         </div>
     
@@ -112,53 +68,7 @@
                             <th>Seguimiento</th>
                         </tr>
                     </thead>
-                    {{-- <tbody>
-                        @foreach ($orders as $order)
-
-                            @foreach ($trackings as $tracking)
-                                @if ($tracking->id_pedido == $order->id and $tracking->estado !== 'Procesando' and $tracking->estado !== 'Sin procesar')
-                                     <tr>
-                                        <td class="text-center">
-                                            @if ($tracking->estado == 'Listo para retirar')
-                                                <div>
-                                                    <span class="circle-order-state primary mini"> 
-                                                    <span class="d-none">1</span>
-                                                </div>
-
-                                            @elseif($tracking->estado == 'Retirado')
-
-                                                <div>
-                                                    <span class="circle-order-state success mini"> 
-                                                    <span class="d-none">2</span>
-                                                </div>
-                                            @endif
-                                        </td>
-                                        <td>{{ $order->id }}</td>
-                                        <td>
-                                            @foreach ($trackings as $tracking)
-                                                @if ($tracking->id_pedido == $order->id)
-                                                    {{ $tracking->estado }}
-                                                @endif
-                                            @endforeach
-                                        </td>
-                                        <td>
-                                            @foreach ($trackings as $tracking)
-                                                @if ($tracking->id_pedido == $order->id)
-                                                    {{ $tracking->lugar }}
-                                                @endif
-                                            @endforeach
-                                        </td>
-                                        <td>{{ presentPrice($order->descuentos) }}</td>
-                                        <td>{{ presentPrice($order->subtotal) }}</td>
-                                        <td><a href="{{ route('order.show', $order->id) }}">Ver detalles</a></td>
-                                    </tr>
-                                @endif
-                            @endforeach
-            
-                
-                        @endforeach
-                
-                    </tbody> --}}
+                   
             </table>
         </div>
     </div>

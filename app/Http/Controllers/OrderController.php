@@ -33,7 +33,6 @@ class OrderController extends Controller
 
         $users = User::select('id')->where('id_comercio', $merchant_id)->get();
 
-        
         $orders = DB::table('orders')->where('pago_exitoso', 1)->whereIn('user_id', $users)->get();
 
 

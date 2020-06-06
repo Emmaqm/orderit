@@ -73,7 +73,7 @@
 	  </div>
 	  
 	<div class="d-flex justify-content-between my-4 ml-4">
-		<a class="ml-3 mt-1 btn-link" href="{{ route('order.indexM') }}"><i class="fas fa-arrow-left mr-2"></i><span class="d-sm-inline d-none">Volver</span></a>		
+		<a class="ml-3 mt-1 btn-link" href="{{ route('order.indexM') }}"><i class="fas fa-arrow-left mr-2"></i><span class="d-sm-inline d-none">Volver</span></a>	
 	</div>
 </div>
 
