@@ -89,9 +89,7 @@ class OrderController extends Controller
                 $trackingEstado = 5;
             }
         }
-        
 
-        // dd($trackingEstado);
     
         return view('tracking-details')->with([
             'order' => $order,

@@ -278,7 +278,7 @@
                                     <td class="p-3">{{ $product['product_id'] }}</td>
                                     <td class="p-3">{{ $product['nombre'] }}</td>
                                     <td class="p-3">
-                                        <span class="badge badge-pill badge-success py-2 px-3">Placeholder en stock</span>
+                                        <span class="badge badge-pill badge-success py-2 px-3">En stock</span>
                                     </td>
                                     <td class="p-3">{{ $product['cantidad'] }}</td>
                                 </tr>    
