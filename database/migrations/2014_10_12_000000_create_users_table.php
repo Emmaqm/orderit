@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->string('telefono');
-            $table->integer('id_comercio');
+            $table->integer('id_comercio')->nullable();
             $table->boolean('estado')->default(0);
         });
     }
