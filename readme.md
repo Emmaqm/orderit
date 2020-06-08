@@ -14,14 +14,53 @@ Esta aplicación tiene como objetivo que los pequeños y medianos comercios pued
 La búsqueda de productos se realiza utilizando el motor [Algolia](https://www.algolia.com/) que cuenta con filtros y orden.
 
 <p align="center">
-  <img src="/capturas/captura.PNG">
+  <img src="/capturas/Captura.PNG">
 </p>
 
 
 ## Checkout
 
+### Agregar productos al pedido
+
+<p align="center">
+  <img src="/capturas/check1.PNG">
+</p>
+
+### Mi pedido
+
+<p align="center">
+  <img src="/capturas/check2.PNG">
+</p>
+
+### Mercadopago smart checkout
+
+<p align="center">
+  <img src="/capturas/check4.PNG">
+</p>
 
 ## Cuenta
 
+### Resumen
+
+<p align="center">
+  <img src="/capturas/cuenta1.PNG">
+</p>
+
+### Mis pedidos
+
+<p align="center">
+  <img src="/capturas/cuenta2.PNG">
+</p>
+
+### Datos personales
+
+<p align="center">
+  <img src="/capturas/cuenta3.PNG">
+</p>
+
 
 ## Dashboard del proveedor
+
+<p align="center">
+  <img src="/capturas/dashboard.PNG">
+</p>
